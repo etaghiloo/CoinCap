@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/coincap/static/css/main.adff014f.css",
+    "main.js": "/coincap/static/js/main.ba7df911.js",
+    "static/js/787.41a206eb.chunk.js": "/coincap/static/js/787.41a206eb.chunk.js",
+    "static/media/Lato-Regular.ttf": "/coincap/static/media/Lato-Regular.9d883d540ee2b4de8024.ttf",
+    "static/media/metamask.png": "/coincap/static/media/metamask.55f2424821cb418c1c3c.png",
+    "static/media/coinbaseWallet.svg": "/coincap/static/media/coinbaseWallet.a3a7d7fd2e88e9cbec769e827507b863.svg",
+    "static/media/settings-gears.png": "/coincap/static/media/settings-gears.b7569e0f712bd270d627.png",
+    "static/media/walletConnect.svg": "/coincap/static/media/walletConnect.304e327744ae5c9b1b62b58f50df6734.svg",
+    "static/media/portis.svg": "/coincap/static/media/portis.ec7c8aa7a1f6fcd2a47fc4c2947d47c8.svg",
+    "static/media/black.svg": "/coincap/static/media/black.c7be6b4702fe054d8f3ab1720e2ef43c.svg",
+    "static/media/bscWallet.svg": "/coincap/static/media/bscWallet.22fad624e3eb8bac9f5d5964d67e78f7.svg",
+    "index.html": "/coincap/index.html",
+    "static/media/torusWallet.svg": "/coincap/static/media/torusWallet.7eb3c8b307f4232d8c6e2433d54fef61.svg",
+    "main.adff014f.css.map": "/coincap/static/css/main.adff014f.css.map",
+    "main.ba7df911.js.map": "/coincap/static/js/main.ba7df911.js.map",
+    "787.41a206eb.chunk.js.map": "/coincap/static/js/787.41a206eb.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.adff014f.css",
+    "static/js/main.ba7df911.js"
+  ]
+}
