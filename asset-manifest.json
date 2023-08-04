@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/CoinCap/static/css/main.ec8b5005.css",
-    "main.js": "/CoinCap/static/js/main.cc4fbc8d.js",
+    "main.js": "/CoinCap/static/js/main.13bec672.js",
     "static/js/787.41a206eb.chunk.js": "/CoinCap/static/js/787.41a206eb.chunk.js",
     "static/media/Lato-Regular.ttf": "/CoinCap/static/media/Lato-Regular.9d883d540ee2b4de8024.ttf",
     "static/media/metamask.png": "/CoinCap/static/media/metamask.55f2424821cb418c1c3c.png",
@@ -14,11 +14,11 @@
     "index.html": "/CoinCap/index.html",
     "static/media/torusWallet.svg": "/CoinCap/static/media/torusWallet.7eb3c8b307f4232d8c6e2433d54fef61.svg",
     "main.ec8b5005.css.map": "/CoinCap/static/css/main.ec8b5005.css.map",
-    "main.cc4fbc8d.js.map": "/CoinCap/static/js/main.cc4fbc8d.js.map",
+    "main.13bec672.js.map": "/CoinCap/static/js/main.13bec672.js.map",
     "787.41a206eb.chunk.js.map": "/CoinCap/static/js/787.41a206eb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ec8b5005.css",
-    "static/js/main.cc4fbc8d.js"
+    "static/js/main.13bec672.js"
   ]
 }
