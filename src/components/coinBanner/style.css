@@ -1,0 +1,66 @@
+.coin-banner {
+    background-image: linear-gradient(to right, rgb(63, 81, 181), rgb(100, 181, 246));
+    padding: 40px;
+    color: #fff;
+}
+.coin-banner .coin-banner-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.coin-banner .info-left {
+    display: flex;
+    gap: 70px;
+}
+.coin-banner .info-left .rank {
+    position: relative;
+    text-align: center;
+    max-width: 125px;
+    padding: 14px 12px;
+    background-color: rgb(24, 198, 131);
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 15px -3px;
+}
+.coin-banner .info-left .rank:after {
+    position: absolute;
+    top: 0;
+    left: -9px;
+    content: "";
+    width: calc(100% + 18px);
+    height: 10px;
+    border-radius: 5px;
+    background-color: rgb(24, 198, 131);
+}
+.coin-banner .info-left .rank h1 {
+    margin: 3px 0 16px 0;
+}
+.coin-banner .info-left .rank h5 {
+    font-weight: 300;
+}
+.coin-banner .info-left .nspc .name-symbol {
+    display: flex;
+    gap: 5px;
+    padding-bottom: 15px;
+}
+.coin-banner .info-left .nspc .price-change {
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
+}
+.coin-banner .info-left .nspc .price-change .change-green {
+    color: rgb(24, 198, 131);
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+.coin-banner .info-left .nspc .price-change .change-red {
+    color: rgb(239, 154, 154);
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+.coin-banner .info-left .nspc .price-change i {
+    font-size: 1.1rem;
+}

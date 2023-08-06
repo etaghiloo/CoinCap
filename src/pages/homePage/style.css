@@ -1,0 +1,10 @@
+.home-page {
+    text-align: center;
+    background-color: #eceff1;
+}
+.home-page .coins-footer-wrapper {
+    margin-top: -110px;
+}
+.home-page .coins button.green {
+    margin: 22px 0;
+}

@@ -1,0 +1,68 @@
+.coin-chart #chartdiv {
+    padding: 0;
+    width: 750px;
+    height: 400px;
+}
+.coin-chart .coin-chart-wrapper {
+    max-width: 740px;
+}
+.coin-chart .basic-info {
+    width: 740px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    padding: 0 20px;
+}
+.coin-chart .basic-info .description {
+    display: flex;
+    gap: 30px;
+}
+.coin-chart .basic-info .description img.coin-icon {
+    width: 58px;
+    height: 58px;
+}
+.coin-chart .basic-info .description .name-date .name {
+    margin-bottom: 14px;
+}
+.coin-chart .basic-info .statistics {
+    display: flex;
+    gap: 60px;
+}
+.coin-chart .basic-info .statistics .high-low .high,
+.coin-chart .basic-info .statistics .average-change .average {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 24px;
+}
+.coin-chart .basic-info .statistics .high-low .low,
+.coin-chart .basic-info .statistics .average-change .change {
+    display: flex;
+    gap: 15px;
+}
+.coin-chart .basic-info .statistics .average-change .change p.change-green {
+    color: rgb(24, 198, 131);
+}
+.coin-chart .basic-info .statistics .average-change .change p.change-red {
+    color: rgb(244, 67, 54);
+}
+.coin-chart #chartdiv {
+    margin-bottom: 20px;
+}
+.coin-chart button.duration {
+    color: rgb(24, 198, 131);
+    background-color: transparent;
+    border: none;
+    margin: 0 5px;
+    padding: 8px 16px;
+    border-radius: 16px;
+    transition: all 0.1s;
+}
+.coin-chart button.duration h5 {
+    font-weight: 600;
+}
+.coin-chart button.duration:hover,
+.coin-chart button.duration.clicked {
+    color: #fff;
+    background-color: rgb(24, 198, 131);
+    cursor: pointer;
+}

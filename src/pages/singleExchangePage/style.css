@@ -1,0 +1,10 @@
+.exchange-page {
+    text-align: center;
+    background-color: #eceff1;
+}
+.exchange-page .exchange-market-footer-wrapper {
+    margin-top: -100px;
+}
+.exchange-page .exchange-market button.green {
+    margin-bottom: 22px;
+}

@@ -1,0 +1,50 @@
+.exchange-banner {
+    background-image: linear-gradient(to right, rgb(63, 81, 181), rgb(100, 181, 246));
+    padding: 40px;
+    color: #fff;
+    min-height: 280px;
+    text-align: left;
+}
+.exchange-banner .exchange-banner-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 90px;
+    align-items: flex-start;
+}
+.exchange-banner .info-left {
+    display: flex;
+    gap: 100px;
+    margin: 0 160px 0 75px;
+}
+.exchange-banner .info-left .rank {
+    position: relative;
+    text-align: center;
+    max-width: 125px;
+    padding: 14px 12px;
+    background-color: rgb(24, 198, 131);
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 15px -3px;
+}
+.exchange-banner .info-left .rank:after {
+    position: absolute;
+    top: 0;
+    left: -9px;
+    content: "";
+    width: calc(100% + 18px);
+    height: 10px;
+    border-radius: 5px;
+    background-color: rgb(24, 198, 131);
+}
+.exchange-banner .info-left .rank h1 {
+    margin: 3px 0 16px 0;
+}
+.exchange-banner .info-left .rank h5 {
+    font-weight: 300;
+}
+.exchange-banner .info-left .name-pairs .pairs {
+    display: flex;
+    gap: 7px;
+    align-items: baseline;
+    margin-top: 15px;
+}

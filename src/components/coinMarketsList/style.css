@@ -1,0 +1,16 @@
+.markets .markets-list {
+    padding-top: 40px;
+}
+.markets .markets-list .box {
+    background-color: #fff;
+    outline: 1px solid rgba(34, 36, 38, 0.1);
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 15px -3px;
+}
+.markets .markets-list .box .status-availability {
+    font-size: 13px;
+    color: rgb(24, 198, 131)
+}
+.markets .markets-list .box a:hover {
+    text-decoration: underline;
+}

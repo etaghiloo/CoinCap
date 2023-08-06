@@ -1,0 +1,141 @@
+.swap-popup.inactive {
+    visibility: hidden;
+    opacity: 0;
+    display: none;
+}
+.swap-popup.active .background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0.8;
+    z-index: 4;
+}
+.swap-popup.active .popup-box {
+    position: fixed;
+    top: 150px;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    max-width: 460px;
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    box-shadow: 1px 3px 3px 0 rgba(0,0,0,.2),1px 3px 15px 2px rgba(0,0,0,.2);
+    visibility: visible;
+    opacity: 1;
+    z-index: 5;
+}
+.swap-popup.active .popup-box .close {
+    text-align: right;
+    line-height: 1rem;
+}
+.swap-popup.active .popup-box .close i {
+    font-size: 1.4rem;
+}
+.swap-popup.active .popup-box .close i:hover {
+    cursor: pointer;
+}
+.swap-popup.active .popup-box .networks {
+    margin-bottom: 25px;
+}
+.swap-popup.active .popup-box .networks-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+button.network {
+    width: 48%;
+    padding: 10px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    color: rgba(0, 0, 0, 0.9);
+    background-color: rgb(249, 249, 249);
+    border: 1px solid rgb(236, 239, 241);
+    border-radius: 8px;
+}
+button.network.ethereum:hover,
+button.network.ethereum.clicked {
+    border: 1px solid rgb(93, 121, 232);
+    background-color: rgb(236, 239, 241);
+    position: relative;
+}
+button.network.binance:hover,
+button.network.binance.clicked {
+    border: 1px solid rgb(241, 185, 12);
+    background-color: rgb(236, 239, 241);
+    position: relative;
+}
+button.network.ethereum.clicked::after,
+button.network.binance.clicked::after {
+    width: 15px;
+    height: 15px;
+    content: "";
+    background-color: rgb(24, 198, 131);
+    border-radius: 40px;
+    border: 2px solid rgb(255, 255, 255);
+    position: absolute;
+    top: -5px;
+    left: -7px;
+}
+button.network img {
+    width: 20px;
+    height: 20px;
+}
+button.network h3 {
+    font-size: 0.95rem;
+}
+button.connect {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.9);
+    background-color: rgb(249, 249, 249);
+    border: 1px solid rgb(236, 239, 241);
+    border-radius: 8px;
+}
+button.connect h3 {
+    font-size: 1.03rem;
+}
+button.connect img {
+    width: 26px;
+    height: 26px;
+}
+button.connect.shape-shift {
+    margin-top: 10px;
+}
+button.connect.shape-shift:hover {
+    color: #406fa9;
+    border: 1px solid #406fa9;
+}
+button.connect.metamask:hover {
+    color: #eb7c14;
+    border: 1px solid #eb7c14;
+}
+button.connect.wallet-connect:hover {
+    color: #3697ff;
+    border: 1px solid #3697ff;
+}
+button.connect.torus:hover {
+    color: #3697ff;
+    border: 1px solid #3697ff;
+}
+button.connect.coinbase-wallet:hover {
+    color: #2f5cff;
+    border: 1px solid #2f5cff;
+}
+button.connect.binance-chain-wallet:hover {
+    color: #efb80a;
+    border: 1px solid #efb80a;
+}
+button.connect.shape-shift.hidden,
+button.connect.coinbase-wallet.hidden {
+    display: none;
+}

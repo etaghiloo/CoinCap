@@ -1,0 +1,73 @@
+/* body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+} */
+
+.coin-chart-expand .coin-chart-wrapper {
+    max-width: 1150px;
+    margin: 0 auto;
+}
+.coin-chart-expand .basic-info {
+    /* width: 740px; */
+    display: flex;
+    gap: 230px;
+    align-items: center;
+    margin: 30px 0 50px 0;
+    padding: 0 30px;
+}
+.coin-chart-expand .basic-info .description {
+    display: flex;
+    gap: 45px;
+    align-items: center;
+}
+.coin-chart-expand .basic-info .description img.coin-icon {
+    width: 80px;
+    height: 80px;
+}
+/* .coin-chart-expand .basic-info .description .name-date {
+    width: 130px;
+} */
+.coin-chart-expand .basic-info .description .name-date .name {
+    margin-bottom: 14px;
+}
+.coin-chart-expand .basic-info .statistics {
+    display: flex;
+    gap: 145px;
+}
+.coin-chart-expand .basic-info .statistics .high-low .high,
+.coin-chart-expand .basic-info .statistics .average-change .average {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 24px;
+}
+.coin-chart-expand .basic-info .statistics .high-low .low,
+.coin-chart-expand .basic-info .statistics .average-change .change {
+    display: flex;
+    gap: 15px;
+}
+.coin-chart-expand .basic-info .statistics .average-change .change p.change-green {
+    color: rgb(24, 198, 131);
+}
+.coin-chart-expand .basic-info .statistics .average-change .change p.change-red {
+    color: rgb(244, 67, 54);
+}
+.coin-chart-expand .basic-info .description .name-date .date h4 {
+    text-align: left;
+    padding: 0;
+}
+.coin-chart-expand #chartdiv {
+    padding: 0;
+    width: 100%;
+    height: 550px;
+}
+.coin-chart-expand button.green {
+    width: 125px;
+}
+.coin-chart-expand button.green h4 {
+    padding: 0;
+}
+.coin-chart-expand a button.green.details {
+    margin: 20px 0 40px 0;
+}
+.coin-chart-expand {
+    border-bottom: 1px solid #e0e0e0;
+}

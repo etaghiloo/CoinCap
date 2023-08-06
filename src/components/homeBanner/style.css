@@ -1,0 +1,20 @@
+.home-banner {
+    background-image: linear-gradient(to right, rgb(63, 81, 181), rgb(100, 181, 246));
+    padding: 25px 40px;
+    color: #fff;
+    min-height: 200px;
+    text-align: center;
+}
+.home-banner .home-banner-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.home-banner h4 {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+.home-banner h2 {
+    font-size: 1.4rem;
+    font-weight: 500;
+}

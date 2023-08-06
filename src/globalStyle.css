@@ -1,0 +1,100 @@
+@font-face {
+    font-family: "Lato Light";
+    font-style: normal;
+    font-weight: 100;
+    src: local("Lato"), url("../public/assets/fonts/lato/Lato-Regular.ttf");
+}
+
+body {
+    direction: ltr;
+    margin: 0;
+    font-family: "Lato Light";
+    font-size: 10px;
+}
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.container {
+    max-width: 1150px;
+    margin: 0 auto;
+}
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: #000;
+    transition: all 0.3s;
+}
+a.underline:hover {
+    text-decoration: underline;
+}
+a:hover h3.light {
+    color: #000;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+    margin: 0;
+}
+h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+h4 {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+h4.light {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.6);
+}
+h5 {
+    font-size: 0.7rem;
+}
+p {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+p.gray {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgb(142, 142, 142);
+}
+button.green {
+    margin-top: 30px;
+    color: #fff;
+    background-color: rgb(24, 198, 131);
+    padding: 10px 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 15px -3px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 110px;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+button.green:hover {
+    transform: translateY(-2px);
+}

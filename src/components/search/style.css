@@ -1,0 +1,58 @@
+.header ul.menu-right li.search .search-bar.active {
+    border: 1px solid #000;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.header ul.menu-right li.search .search-bar input.inactive {
+    visibility: hidden;
+    opacity: 0;
+    width: 0;
+    height: 30px;
+    transition: all 0.3s;
+}
+.header ul.menu-right li.search .search-bar input.active {
+    visibility: visible;
+    opacity: 1;
+    border: none;
+    width: 160px;
+    height: 30px;
+    padding: 7px;
+    transition: all 0.3s;
+    outline: none;
+    font-size: 0.9rem;
+}
+.header ul.menu-right li.search .search-bar i {
+    padding: 0 9px;
+    font-size: 0.98rem;
+}
+.header ul.menu-right li.search .search-bar .spinner {
+    margin: 0 9px;
+}
+.header ul.menu-right li.search .result.inactive {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+}
+.header ul.menu-right li.search .result.active {
+    visibility: visible;
+    opacity: 1;
+    width: 194.4px;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 15px -3px;
+    text-align: left;
+    padding: 15px;
+}
+.header ul.menu-right li.search .result.active h3 {
+    border-bottom: 1px solid #000;
+    margin-bottom: 14px;
+}
+.header ul.menu-right li.search .result.active h3.exchanges {
+    margin: 25px 0 14px 0;
+}
+.header ul.menu-right li.search .result.active ul li a h4 {
+    padding: 0 0 7px 0;
+}
+.header ul.menu-right li.search .result.active ul li a:hover h4 {
+    color: #000;
+}

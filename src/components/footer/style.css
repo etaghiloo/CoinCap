@@ -1,0 +1,65 @@
+.footer {
+    padding: 40px;
+    text-align: left;
+    background: linear-gradient(to right, rgb(63, 81, 181), rgb(100, 181, 246));
+}
+.footer .footer-wrapper {
+    display: flex;
+}
+.footer .column {
+    width: 25%;
+    padding: 0 10px;
+}
+.footer .column.one {
+    padding-left: 0;
+}
+.footer .column.four {
+    padding-right: 0;
+}
+.footer .column h4 {
+    margin-bottom: 14px;
+    color: #fff;
+    font-weight: 600;
+}
+.footer .column h4.light {
+    margin-bottom: 7px;
+}
+.footer .column .disclaimer h4.light {
+    color: #fff;
+    opacity: 0.5;
+    margin-bottom: 7px;
+    font-weight: 400;
+}
+.footer .column h4.light a {
+    color: #fff;
+    opacity: 0.5;
+    font-weight: 400;
+    padding: 3px 0;
+    transition: none;
+}
+.footer .column h4.light a:hover {
+    opacity: 1;
+}
+.footer .column.two .disclaimer {
+    margin-top: 24px;
+}
+.footer .column.three ul.platforms {
+    display: flex;
+    gap: 10px;
+}
+.footer .column.three ul.platforms li a i {
+    font-size: 1.4rem;
+    color: #ffffff;
+    opacity: 0.8;
+    transition: all 0.2s;
+}
+.footer .column.three ul.platforms li a:hover i {
+    opacity: 1;
+}
+.footer .column.four ul li a img {
+    opacity: 0.5;
+    margin-bottom: 4px;
+}
+.footer .column.four ul li a:hover img {
+    opacity: 1;
+}

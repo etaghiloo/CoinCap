@@ -1,0 +1,240 @@
+.swap {
+    position: relative;
+}
+.swap .swap-box {
+    width: 360px;
+    height: 410px;
+    margin-top: 35px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 9px;
+    padding: 20px;
+    z-index: 2;
+}
+.swap .swap-box .swap-setting-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.swap .swap-box .swap-setting-wrapper i {
+    font-size: 1.3rem;
+    opacity: 0.8;
+    transition: all 0.2s;
+}
+.swap .swap-box .swap-setting-wrapper i:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+.swap .swap-box .sell-box,
+.swap .swap-box .get-box {
+    border-radius: 12px;
+    padding: 14px;
+    border: 1px solid rgb(236, 239, 241);
+    background: rgb(249, 249, 249);
+    margin: 16px 0;
+}
+.swap .swap-box .sell-box h4,
+.swap .swap-box .get-box h4 {
+    font-weight: 600;
+    opacity: 0.7;
+}
+.swap .swap-box .sell-box #sell-input-token-wrapper,
+.swap .swap-box .get-box #get-input-select-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.swap .swap-box .sell-box .select-drop-down,
+.swap .swap-box .get-box .token-drop-down,
+.swap .swap-box .sell-box .token-drop-down,
+.swap .swap-box .get-box .select-drop-down {
+    display: flex;
+    gap: 7px;
+    align-items: center;
+    transition: all 0.1s;
+}
+.swap .swap-box .sell-box .select-drop-down.width100,
+.swap .swap-box .get-box .select-drop-down.width100 {
+    width: 100%;
+}
+.swap .swap-box .sell-box .select-drop-down:hover,
+.swap .swap-box .get-box .token-drop-down:hover,
+.swap .swap-box .sell-box .token-drop-down:hover,
+.swap .swap-box .get-box .select-drop-down:hover {
+    color: rgb(24, 198, 131);
+    cursor: pointer;
+}
+.swap .swap-box .sell-box .select-drop-down img,
+.swap .swap-box .get-box .token-drop-down img,
+.swap .swap-box .sell-box .token-drop-down img,
+.swap .swap-box .get-box .select-drop-down img {
+    width: 26px;
+    height: 26px;
+}
+.swap .swap-box .sell-box .select-drop-down h3,
+.swap .swap-box .get-box .token-drop-down h3,
+.swap .swap-box .sell-box .token-drop-down h3,
+.swap .swap-box .get-box .select-drop-down h3 {
+    font-size: 1.04rem;
+}
+.swap .swap-box .sell-box .select-drop-down i,
+.swap .swap-box .get-box .token-drop-down i,
+.swap .swap-box .sell-box .token-drop-down i,
+.swap .swap-box .get-box .select-drop-down i {
+    font-size: 1.1rem;
+}
+.swap .swap-box .sell-box input,
+.swap .swap-box .get-box input {
+    width: 100%;
+    margin-right: 10px;
+    font-size: 24px;
+    background: transparent;
+    color: rgba(0, 0, 0, 0.9);
+    border: none;
+    outline: none;
+}
+.swap .swap-box .shuffle-icon {
+    width: 25px;
+    height: auto;
+    margin-left: 20px;
+}
+.swap .swap-box .shuffle-icon:hover {
+    cursor: pointer;
+}
+.swap .swap-box button.green-wallet {
+    width: 100%;
+    padding: 18px 0px;
+    margin-top: 7px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: rgb(24, 198, 131);
+    border: none;
+    border-radius: 60px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.swap .swap-sell-tokens-list.inactive,
+.swap .swap-get-tokens-list.inactive {
+    visibility: hidden;
+    opacity: 0;
+    display: none;
+    animation: 1s slide-down;
+}
+@keyframes slide-down {
+    0% {
+        margin-top: 35px;
+        height: 92%;
+    }
+    100% {
+        margin-top: 410px;
+        height: 0%;
+    }
+}
+.swap .swap-sell-tokens-list.active,
+.swap .swap-get-tokens-list.active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: visible;
+    opacity: 1;
+    width: 360px;
+    height: 500px;
+    margin-top: 35px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 9px;
+    padding: 20px;
+    overflow: hidden;
+    z-index: 3;
+    animation: 1s slide-up;
+}
+@keyframes slide-up {
+    0% {
+        margin-top: 410px;
+        height: 0%;
+    }
+    100% {
+        margin-top: 35px;
+        height: 92%;
+    }
+}
+.swap .swap-sell-tokens-list.active .title-close-wrapper,
+.swap .swap-get-tokens-list.active .title-close-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.swap .swap-sell-tokens-list.active i,
+.swap .swap-get-tokens-list.active i {
+    font-size: 1.3rem;
+    opacity: 0.7;
+    transition: all 0.2s;
+}
+.swap .swap-sell-tokens-list.active i:hover,
+.swap .swap-get-tokens-list.active i:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+.swap .swap-sell-tokens-list.active input.token-search-bar,
+.swap .swap-get-tokens-list.active input.token-search-bar {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.1rem;
+    color: rgba(0, 0, 0, 0.9);
+    background: rgb(236, 239, 241);
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    margin: 17px 0;
+}
+.swap .swap-sell-tokens-list.active ul,
+.swap .swap-get-tokens-list.active ul {
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 350px;
+    width: calc(100% + 20px);
+}
+.swap .swap-sell-tokens-list.active ul li,
+.swap .swap-get-tokens-list.active ul li {
+    display: flex;
+    align-items: center;
+    padding: 7px 17px;
+    margin: 0px 17px 1px 0;
+}
+.swap .swap-sell-tokens-list.active ul li:hover,
+.swap .swap-get-tokens-list.active ul li:hover {
+    cursor: pointer;
+    background-color: rgb(236, 239, 241, 0.5);
+    border-radius: 8px;
+}
+.swap .swap-sell-tokens-list.active ul li img.logo,
+.swap .swap-get-tokens-list.active ul li img.logo {
+    width: 25px;
+    height: 25px;
+}
+.swap .swap-sell-tokens-list.active ul li .symbol-name-ERC,
+.swap .swap-get-tokens-list.active ul li .symbol-name-ERC {
+    width: calc(100% - 20px);
+    margin-left: 20px;
+}
+.swap .swap-sell-tokens-list.active ul li .symbol-name-ERC .symbol-name-wrapper,
+.swap .swap-get-tokens-list.active ul li .symbol-name-ERC .symbol-name-wrapper {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.swap .swap-sell-tokens-list.active ul li .symbol-name-ERC h5,
+.swap .swap-get-tokens-list.active ul li .symbol-name-ERC h5 {
+    background-color: rgba(0, 128, 0, 0.2);
+    color: rgba(0, 0, 0, 0.6);
+    padding: 0px 5px;
+    border-radius: 15px;
+}
+.swap .swap-sell-tokens-list.active ul li a img.explore,
+.swap .swap-get-tokens-list.active ul li a img.explore  {
+    width: 17px;
+    height: 17px;
+    margin-left: auto;
+}

@@ -1,0 +1,16 @@
+.exchange-market .exchange-market-list .box {
+    background-color: #fff;
+    outline: 1px solid rgba(34, 36, 38, 0.1);
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 15px -3px;
+}
+.exchange-market .exchange-market-list .box .pairs {
+    display: flex;
+}
+.exchange-market .exchange-market-list .box .pairs a:hover h4 {
+    text-decoration: underline;
+}
+.exchange-market .exchange-market-list .box .status-availability {
+    font-size: 13px;
+    color: rgb(244, 67, 54);
+}
