@@ -118,7 +118,7 @@ export default function CoinsList(props) {
             sortFunction: caseInsensitiveSort,
             cell: row => (
                 <div className="logo-name">
-                    <img src />
+                    <img src={`https://assets.coincap.io/assets/icons/${row.symbol.toLowerCase()}@2x.png`} />
                     <Link to={`/assets/${row.id}`}>
                         <h4 className="name">{row.name}</h4>
                         <h4 className="light">{row.symbol}</h4>

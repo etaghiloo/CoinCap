@@ -43,8 +43,7 @@ export default function Swap() {
             const {id, symbol} = token;
             return (
                 <li key={id} onClick={() => {setSelectedSellTokenSymbol(symbol); setSellTokensList(false)}} >
-                    
-                    <img className="logo" src="" />
+                    <img className="logo" src={`https://assets.coincap.io/assets/icons/${symbol.toLowerCase()}@2x.png`} />
                     <div className="symbol-name-ERC">
                         <div className="symbol-name-wrapper">
                             <h4>{symbol}</h4>
@@ -60,12 +59,11 @@ export default function Swap() {
         })
     };
     function timeLoopGetTokens() {
-        return getTokens.map(function(token, i) {
+        return getTokens.map(function(token) {
             const {id, symbol} = token;
             return (
-                <li key={i+1000} onClick={() => {setSelectedGetTokenSymbol(symbol); setGetTokensList(false)}} >
-                    
-                    <img className="logo" src="" />
+                <li key={id} onClick={() => {setSelectedGetTokenSymbol(symbol); setGetTokensList(false)}} >
+                    <img className="logo" src={`https://assets.coincap.io/assets/icons/${symbol.toLowerCase()}@2x.png`} />
                     <div className="symbol-name-ERC">
                         <div className="symbol-name-wrapper">
                             <h4>{symbol}</h4>
@@ -76,7 +74,6 @@ export default function Swap() {
                     <Link>
                         <img className="explore" src="https://coincap.io/static/icons/etherscan-light.svg" />
                     </Link>
-                    
                 </li>
             )
         })
@@ -124,7 +121,7 @@ export default function Swap() {
                     <div id="sell-input-token-wrapper">
                         <input placeholder="0" />
                         <div className="token-drop-down" onClick={showSellTokens}>
-                            <img src="" />
+                            <img src={`https://assets.coincap.io/assets/icons/${selectedSellTokenSymbol.toLowerCase()}@2x.png`} />
                             <h3>{selectedSellTokenSymbol}</h3>
                             <i>{angleDown}</i>
                         </div>
@@ -132,13 +129,12 @@ export default function Swap() {
                     <div id="sell-input-select-wrapper-hidden" style={{display: "none"}}>
                         <input placeholder="0" />
                         <div className={`select-drop-down ${selectedGetTokenSymbol === "Select a token" ? "width100" : ""}`} onClick={showGetTokens}>
-                            {selectedGetTokenSymbol === "Select a token" ? "" : <img src="" />}
+                            {selectedGetTokenSymbol === "Select a token" ? "" : <img src={`https://assets.coincap.io/assets/icons/${selectedGetTokenSymbol.toLowerCase()}@2x.png`} />}
                             <h3>{selectedGetTokenSymbol}</h3>
                             <i>{angleDown}</i>
                         </div>
                     </div>
                 </div>
-
                 <div className="shuffle-icon" onClick={shuffle}>
                     <img src="https://coincap.io/static/icons/shuffle.svg" />
                 </div>
@@ -147,7 +143,7 @@ export default function Swap() {
                     <div id="get-input-select-wrapper">
                         <input placeholder="0" />
                         <div className={`select-drop-down ${selectedGetTokenSymbol === "Select a token" ? "width100" : ""}`} onClick={showGetTokens}>
-                            {selectedGetTokenSymbol === "Select a token" ? "" : <img src="" />}
+                            {selectedGetTokenSymbol === "Select a token" ? "" : <img src={`https://assets.coincap.io/assets/icons/${selectedGetTokenSymbol.toLowerCase()}@2x.png`} />}
                             <h3>{selectedGetTokenSymbol}</h3>
                             <i>{angleDown}</i>
                         </div>
@@ -155,7 +151,7 @@ export default function Swap() {
                     <div id="get-input-token-wrapper-hidden" style={{display: "none"}}>
                         <input placeholder="0" />
                         <div className="token-drop-down" onClick={showSellTokens}>
-                            <img src="" />
+                            <img src={`https://assets.coincap.io/assets/icons/${selectedSellTokenSymbol.toLowerCase()}@2x.png`} />
                             <h3>{selectedSellTokenSymbol}</h3>
                             <i>{angleDown}</i>
                         </div>
@@ -163,7 +159,6 @@ export default function Swap() {
                 </div>
                 <button className="green-wallet" onClick={openPopup}>Connect Wallet</button>
             </div>
-
             <div className={`swap-sell-tokens-list ${sellTokensList === true ? "active" : "inactive"}`}>
                 <div className="title-close-wrapper">
                     <h3>Select a token</h3>

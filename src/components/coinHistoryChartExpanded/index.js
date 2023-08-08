@@ -192,7 +192,7 @@ export default function CoinHistoryChartExpanded(props) {
 			<div className="coin-chart-wrapper">
 				<div className="basic-info">
 					<div className="description">
-						<img className="coin-icon" src />
+						<img className="coin-icon" src={`https://assets.coincap.io/assets/icons/${info?.data?.symbol?.toLowerCase()}@2x.png`} />
 						<div className="name-date">
 							<div className="name">
 								<h3>{info.data.name} ({info.data.symbol})</h3>
