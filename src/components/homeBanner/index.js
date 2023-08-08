@@ -63,7 +63,7 @@ export default function HomeBanner(props) {
 		return Intl.NumberFormat().format(x);
 	};
     function domIndex(e) {
-        return ((e?.marketCapUsd)/sum(allMarketCaps)*100)
+        return ((e?.marketCapUsd/currencyRate)/(sum(allMarketCaps)))*100
     }
     useEffect(() => {
         getApiAssets();
