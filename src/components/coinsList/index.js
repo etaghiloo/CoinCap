@@ -5,6 +5,7 @@ import CoinHistoryChartExpanded from "../coinHistoryChartExpanded";
 import axios from "axios";
 import Spinner from 'react-bootstrap/Spinner';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import updateButton from "../../update-button-white.png";
 import "./style.css";
 
 export default function CoinsList(props) {
@@ -268,6 +269,10 @@ export default function CoinsList(props) {
                         : "View More"
                     }
                 </button>
+                <div className="update-button" onClick={getApi}>
+                    <img src={updateButton} />
+                    <h3>Update!</h3>
+                </div>
             </div>
         </div>
     )

@@ -23,59 +23,22 @@
     font-size: 0.7rem;
     margin-top: 3px;
 }
-
-/* .coins-list .list-header {
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid rgba(34, 36, 38, 0.1);
-}
-.coins-list ul li {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    border-bottom: 1px solid rgba(34, 36, 38, 0.1);
-}
-
-.coins-list h4.rank {
-    width: 90px;
-    text-align: center;
-}
-.coins-list .name-symbol {
-    width: 250px;
+.coins-list .update-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: rgb(24, 198, 131);
+    color: #fff;
     padding: 12px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 15px -3px;
+    border-radius: 20px;
+    cursor: pointer;
 }
-.coins-list ul li .name-symbol img.coin-icon {
-    width: 30px;
-    height: 30px;
+.coins-list .update-button img {
+    width: 25px;
+    height: auto;
+    margin-bottom: 5px;
 }
-.coins-list .name-symbol h4 {
-    text-align: left;
-    padding: 0;
+.coins-list .update-button h3 {
+    font-size: 1rem;
 }
-.coins-list h4.price {
-    width: 140px;
-}
-.coins-list h4.market {
-    width: 120px;
-}
-.coins-list h4.vwap {
-    width: 140px;
-}
-.coins-list h4.supply {
-    width: 110px;
-}
-.coins-list h4.volume {
-    width: 140px;
-}
-.coins-list h4.change {
-    width: 140px;
-}
-.coins-list h4.change.green {
-    color: rgb(24, 198, 131);
-}
-.coins-list h4.change.red {
-    color: rgb(244, 67, 54);
-} */

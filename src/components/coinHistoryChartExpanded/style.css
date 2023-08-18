@@ -1,13 +1,8 @@
-/* body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-} */
-
 .coin-chart-expand .coin-chart-wrapper {
     max-width: 1150px;
     margin: 0 auto;
 }
 .coin-chart-expand .basic-info {
-    /* width: 740px; */
     display: flex;
     gap: 230px;
     align-items: center;
@@ -23,9 +18,6 @@
     width: 80px;
     height: 80px;
 }
-/* .coin-chart-expand .basic-info .description .name-date {
-    width: 130px;
-} */
 .coin-chart-expand .basic-info .description .name-date .name {
     margin-bottom: 14px;
 }

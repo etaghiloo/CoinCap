@@ -82,7 +82,7 @@ export default function CoinHistoryChartExpanded(props) {
 		});
 
 		root.numberFormatter.setAll({
-			numberFormat: "#,###.0000",
+			numberFormat: "#,###.000000",
 			numericFields: ["priceUsd"]
 		});
 
