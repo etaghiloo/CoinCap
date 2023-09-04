@@ -15,6 +15,7 @@ export default function Exchanges() {
     const [loading, setLoading] = useState(false);
     const [currencyRate, setCurrencyRate] = useState();
     const [currencySymbol, setCurrencySymbol] = useState();
+    const [theme, setTheme] = useState();
     async function getApi() {
         try {
             setLoading(true);
@@ -39,13 +40,13 @@ export default function Exchanges() {
     }, [limit]);
 
     return (
-        <div className="exchanges-page">
+        <div className={`exchanges-page ${theme}`}>
             <ShapeShiftHeader />
-            <Header secondRateTransfer={setCurrencyRate} secondSymbolTransfer={setCurrencySymbol} />
-            <HomeBanner currencyRate={currencyRate} currencySymbol={currencySymbol} />
+            <Header secondRateTransfer={setCurrencyRate} secondSymbolTransfer={setCurrencySymbol} themeTransfer={setTheme} />
+            <HomeBanner currencyRate={currencyRate} currencySymbol={currencySymbol} theme={theme} />
             <div className="exchanges-footer-wrapper">
                 <div className="exchanges">
-                    <ExchangesList exchangesData={exchanges} currencyRate={currencyRate} currencySymbol={currencySymbol} />
+                    <ExchangesList exchangesData={exchanges} currencyRate={currencyRate} currencySymbol={currencySymbol} theme={theme} />
                     <button className="green" onClick={loadMore} disabled={loading}>
                         {loading === true
                             ? <Spinner animation="border" variant="light" size="sm" role="status"></Spinner>
@@ -53,7 +54,7 @@ export default function Exchanges() {
                         }
                     </button>
                 </div>
-                <Footer />
+                <Footer theme={theme} />
             </div>
         </div>
     )

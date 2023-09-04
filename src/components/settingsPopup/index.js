@@ -7,18 +7,24 @@ import Rates from "../rates";
 import "./style.css";
 
 export default function SettingsPopup(props) {
-    const { secondRateTransfer, secondSymbolTransfer, enabled, setEnabled } = props;
+    const { secondRateTransfer, secondSymbolTransfer, enabled, setEnabled, themeTransfer } = props;
     const [currencyRate, setCurrencyRate] = useState();
     const [currencySymbol, setCurrencySymbol] = useState();
-    const [darkTheme, setDarkTheme] = useState(false);
+    const [theme, setTheme] = useState(
+        localStorage.getItem("theme") || "light"
+    );
     const [flash, setFlash] = useState(false);
     const xMark = <FontAwesomeIcon icon={faXmark} />
     const check = <FontAwesomeIcon icon={faCheck} />
     function close() {
         setEnabled(false);
     };
-    function darkThemeClick() {
-        setDarkTheme(!darkTheme);
+    function themeChanger() {
+        if (theme === "light") {
+            setTheme("dark");
+        } else {
+            setTheme("light");
+        };
     };
     function flashClick() {
         setFlash(!flash);
@@ -29,6 +35,11 @@ export default function SettingsPopup(props) {
     useEffect(() => {
         secondSymbolTransfer(currencySymbol);
     }, [currencySymbol]);
+    useEffect(() => {
+        localStorage.setItem("theme", theme);
+        document.body.className = theme;
+        themeTransfer(theme);
+    }, [theme]);
 
     return (
         <div className={`settings-popup ${enabled === true ? "active" : "inactive"}`}>
@@ -46,8 +57,8 @@ export default function SettingsPopup(props) {
                 <div className="settings-list">
                     <div className="theme">
                         <h4>Dark Theme</h4>
-                        <span onClick={darkThemeClick}></span>
-                        <i onClick={darkThemeClick} className={`${darkTheme === true ? "active" : "inactive" }`}>{check}</i>
+                        <span onClick={themeChanger}></span>
+                        <i onClick={themeChanger} className={`${theme === "dark" ? "active" : "inactive" }`}>{check}</i>
                     </div>
                     <div className="flash">
                         <h4>Flash Price Indicators</h4>

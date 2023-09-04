@@ -9,7 +9,7 @@ import updateButton from "../../update-button-white.png";
 import "./style.css";
 
 export default function CoinsList(props) {
-    const { currencyRate, currencySymbol } = props;
+    const { currencyRate, currencySymbol, theme } = props;
     const [coins, setCoins] = useState([]);
     const [limit, setLimit] = useState(20);
     const [loading, setLoading] = useState(false);
@@ -197,20 +197,43 @@ export default function CoinsList(props) {
         },
     ];
     const customStyles = {
-        rows: {
-            style: {
-                minHeight: "58px",
-                fontSize: "14px",
-                fontWeight: 400,
-            },
-        },
         headRow: {
             style: {
                 minHeight: "44px",
                 fontSize: "14px",
                 fontWeight: 400,
-                color: "#00000099",
-                backgroundColor: "#fafafa",
+                color: theme === "dark" ? "#8a8a8a" : "#00000099",
+                backgroundColor: theme === "dark" ? "#000" : "#fafafa",
+            },
+        },
+        headCells: {
+            style: {
+                '&:hover': {
+                    color: theme === "dark" ? "#fff" : "#000",
+                },
+            },
+        },
+        rows: {
+            style: {
+                minHeight: "58px",
+                fontSize: "14px",
+                fontWeight: 400,
+                color: theme === "dark" ? '#fff' : '#000',
+                backgroundColor: theme === "dark" ? "rgb(54, 54, 54)" : "#fff",
+                transitionDuration: '0.2s',
+                transitionProperty: 'background-color',
+            },
+            highlightOnHoverStyle: {
+                backgroundColor: theme === "dark" ? "rgb(37, 37, 37)" : "rgba(0, 0, 0, 0.12)",
+                borderBottomColor: theme === "dark" ? "rgb(37, 37, 37)" : "rgba(0, 0, 0, 0.12)",
+                outlineColor: theme === "dark" ? "rgb(37, 37, 37)" : "rgba(0, 0, 0, 0.12)",
+                color: theme === "dark" ? '#fff' : '#000',
+            }
+        },
+        expanderRow: {
+            style: {
+                color: theme === "dark" ? '#fff' : '#000',
+                backgroundColor: theme === "dark" ? "rgb(54, 54, 54)" : "#fff",
             },
         },
     };
@@ -246,9 +269,9 @@ export default function CoinsList(props) {
         // }, 1000)
         // return () => {clearInterval(interval)}
     }, [limit]);
-    
+
     return (
-        <div className="coins-list">
+        <div className={`coins-list ${theme}`}>
             <div className="container">
                 <div className="box">
                     <DataTable

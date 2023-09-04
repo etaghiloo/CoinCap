@@ -9,7 +9,7 @@
 }
 .markets .markets-list .box .status-availability {
     font-size: 13px;
-    color: rgb(24, 198, 131)
+    color: rgb(24, 198, 131);
 }
 .markets .markets-list .box a:hover {
     text-decoration: underline;

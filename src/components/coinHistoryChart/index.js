@@ -6,7 +6,7 @@ import * as am5xy from "@amcharts/amcharts5/xy";
 import './style.css';
 
 export default function CoinHistoryChart(props) {
-	const { coinData, currencyRate, currencySymbol } = props;
+	const { coinData, currencyRate, currencySymbol, theme } = props;
 	const { id } = useParams();
 	const idnew = id.replace(/\s+/g, '-').toLowerCase();
 	const [history, setHistory] = useState([]);
@@ -292,7 +292,7 @@ export default function CoinHistoryChart(props) {
 	}, [history, currencyRate]);
 
 	return (
-		<div className="coin-chart">
+		<div className={`coin-chart ${theme}`}>
 			<div className="coin-chart-wrapper">
 				<div className="basic-info">
 					<div className="description">

@@ -3,7 +3,7 @@ import axios from "axios";
 import "./style.css";
 
 export default function HomeBanner(props) {
-    const { currencyRate, currencySymbol } = props;
+    const { currencyRate, currencySymbol, theme } = props;
     const [coins, setCoins] = useState([]);
     const [exchanges, setExchanges] = useState([]);
     const [bitcoin, setBitcoin] = useState([]);
@@ -76,7 +76,7 @@ export default function HomeBanner(props) {
     }, []);
 
     return (
-        <div className="home-banner">
+        <div className={`home-banner ${theme}`}>
             <div className="container">
                 <div className="home-banner-wrapper">
                     <div className="market-cap">

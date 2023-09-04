@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Select from "react-select";
 
-export default function LanguageSelector() {
+export default function LanguageSelector(props) {
+    const { theme } = props;
     const languages = [
         {
             value: "English",
@@ -24,7 +25,7 @@ export default function LanguageSelector() {
     const [selectedLanguage, setSelectedLanguage] = useState();
 
     return (
-        <div className="language-drop-down">
+        <div className={`language-drop-down ${theme}`}>
             <Select
                 options={languages}
                 placeholder="English"
@@ -40,12 +41,12 @@ export default function LanguageSelector() {
                     placeholder: (base) => ({
                         ...base,
                         fontSize: '0.8rem',
-                        color: 'black',
+                        color: theme === "dark" ? 'white' : 'black',
                         textAlign: 'right',
                     }),
                     input: (base) => ({
                         ...base,
-                        color: 'black',
+                        color: theme === "dark" ? 'white' : 'black',
                         fontSize: '0.8rem',
                         width: '50px',
                     }),
@@ -54,6 +55,7 @@ export default function LanguageSelector() {
                         border: 'none',
                         outline: 'none',
                         boxShadow: 'none',
+                        background: 'transparent',
                     }),
                     menuList: (base) => ({
                         ...base,
@@ -68,7 +70,7 @@ export default function LanguageSelector() {
                     }),
                     singleValue: (base, state) => ({
                         ...base,
-                        color: state.isSelected ? 'grey' : 'black',
+                        color: theme === "dark" ? 'white' : 'black',
                         fontSize: '0.8rem',
                         height: '1.2rem',
                     }),

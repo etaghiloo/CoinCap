@@ -5,7 +5,7 @@ import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import "./style.css";
 
 export default function ExchangeMarketList(props) {
-    const { exchangeMarketData, currencyRate, currencySymbol } = props;
+    const { exchangeMarketData, currencyRate, currencySymbol, theme } = props;
     const circle = <FontAwesomeIcon icon={faCircle} />
     var NumAbbr = require('number-abbreviate');
     var numAbbr = new NumAbbr(['k', 'm', 'b', 't']);
@@ -157,20 +157,43 @@ export default function ExchangeMarketList(props) {
         },
     ];
     const customStyles = {
-        rows: {
-            style: {
-                minHeight: "44px",
-                fontSize: "14px",
-                fontWeight: 400,
-            },
-        },
         headRow: {
             style: {
                 minHeight: "44px",
                 fontSize: "14px",
                 fontWeight: 400,
-                color: "#00000099",
-                backgroundColor: "#fafafa",
+                color: theme === "dark" ? "#8a8a8a" : "#00000099",
+                backgroundColor: theme === "dark" ? "#000" : "#fafafa",
+            },
+        },
+        headCells: {
+            style: {
+                '&:hover': {
+                    color: theme === "dark" ? "#fff" : "#000",
+                },
+            },
+        },
+        rows: {
+            style: {
+                minHeight: "58px",
+                fontSize: "14px",
+                fontWeight: 400,
+                color: theme === "dark" ? '#fff' : '#000',
+                backgroundColor: theme === "dark" ? "rgb(54, 54, 54)" : "#fff",
+                transitionDuration: '0.2s',
+                transitionProperty: 'background-color',
+            },
+            highlightOnHoverStyle: {
+                backgroundColor: theme === "dark" ? "rgb(37, 37, 37)" : "rgba(0, 0, 0, 0.12)",
+                borderBottomColor: theme === "dark" ? "rgb(37, 37, 37)" : "rgba(0, 0, 0, 0.12)",
+                outlineColor: theme === "dark" ? "rgb(37, 37, 37)" : "rgba(0, 0, 0, 0.12)",
+                color: theme === "dark" ? '#fff' : '#000',
+            }
+        },
+        expanderRow: {
+            style: {
+                color: theme === "dark" ? '#fff' : '#000',
+                backgroundColor: theme === "dark" ? "rgb(54, 54, 54)" : "#fff",
             },
         },
     };
@@ -185,7 +208,7 @@ export default function ExchangeMarketList(props) {
 	};
     
     return (
-        <div className="exchange-market-list">
+        <div className={`exchange-market-list ${theme}`}>
             <div className="container">
                 <div className="box">
                     <DataTable

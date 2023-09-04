@@ -1,7 +1,11 @@
 .coin-banner {
-    background-image: linear-gradient(to right, rgb(63, 81, 181), rgb(100, 181, 246));
+    background: linear-gradient(to right, rgb(63, 81, 181), rgb(100, 181, 246));
     padding: 40px;
     color: #fff;
+}
+.coin-banner.dark {
+    background: rgb(54, 54, 54);
+    border-bottom: 3px solid #202020;
 }
 .coin-banner .coin-banner-wrapper {
     display: flex;

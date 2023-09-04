@@ -10,10 +10,11 @@ import { faGear } from '@fortawesome/free-solid-svg-icons';
 import "./style.css";
 
 export default function Header(props) {
-    const { secondRateTransfer, secondSymbolTransfer } = props;
+    const { secondRateTransfer, secondSymbolTransfer, themeTransfer } = props;
     const [currencyRate, setCurrencyRate] = useState();
     const [currencySymbol, setCurrencySymbol] = useState();
     const [settingsPopup, setSettingsPopup] = useState(false);
+    const [theme, setTheme] = useState();
     const gear = <FontAwesomeIcon icon={faGear} />
     function openPopup() {
         setSettingsPopup(true);
@@ -24,9 +25,12 @@ export default function Header(props) {
     useEffect(() => {
         secondSymbolTransfer(currencySymbol);
     }, [currencySymbol]);
+    useEffect(() => {
+        themeTransfer(theme);
+    }, [theme]);
     
     return (
-        <div className="header">
+        <div className={`header ${theme}`}>
             <div className="container">
                 <div className="header-wrapper">
                     <ul className="menu-left">
@@ -48,15 +52,15 @@ export default function Header(props) {
                     </ul>
                     <div className="logo">
                         <Link to={`/`}>
-                            <img src={logo} />
+                            <img src={theme === "light" ? logo : "https://coincap.io/static/logos/white.svg"} />
                         </Link>
                     </div>
                     <ul className="menu-right">
                         <li>
-                            <Rates firstRateTransfer={setCurrencyRate} firstSymbolTransfer={setCurrencySymbol} />
+                            <Rates firstRateTransfer={setCurrencyRate} firstSymbolTransfer={setCurrencySymbol} theme={theme} />
                         </li>
                         <li className="languages">
-                            <LanguageSelector />
+                            <LanguageSelector theme={theme} />
                         </li>
                         <li className="search">
                             <Search />
@@ -69,6 +73,7 @@ export default function Header(props) {
                 <SettingsPopup
                     secondRateTransfer={setCurrencyRate} secondSymbolTransfer={setCurrencySymbol}
                     enabled={settingsPopup} setEnabled={setSettingsPopup}
+                    themeTransfer={setTheme}
                 />
             </div>
         </div>

@@ -3,14 +3,14 @@ import TopPair from "../topPair";
 import "./style.css";
 
 export default function ExchangeBanner(props) {
-    const { exchangeData } = props;
+    const { exchangeData, theme } = props;
     const exchangeId = exchangeData.exchangeId;
 	function numberFormat(x) {
 		return Intl.NumberFormat(undefined, {minimumFractionDigits: 2}).format(x);
 	};
 
     return (
-        <div className="exchange-banner">
+        <div className={`exchange-banner ${theme}`}>
             <div className="container">
                 <div className="exchange-banner-wrapper">
                     <div className="info-left">

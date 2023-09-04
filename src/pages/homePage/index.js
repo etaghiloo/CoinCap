@@ -9,20 +9,21 @@ import "./style.css";
 export default function Home() {
     const [currencyRate, setCurrencyRate] = useState();
     const [currencySymbol, setCurrencySymbol] = useState();
+    const [theme, setTheme] = useState();
     useEffect(() => {
         document.title = `CoinCap.io | Reliable Cryptocurrency Prices and Market Capitalizations`;
     }, []);
     
     return (
-        <div className="home-page">
+        <div className={`home-page ${theme}`}>
             <ShapeShiftHeader />
-            <Header secondRateTransfer={setCurrencyRate} secondSymbolTransfer={setCurrencySymbol} />
-            <HomeBanner currencyRate={currencyRate} currencySymbol={currencySymbol} />
+            <Header secondRateTransfer={setCurrencyRate} secondSymbolTransfer={setCurrencySymbol} themeTransfer={setTheme} />
+            <HomeBanner currencyRate={currencyRate} currencySymbol={currencySymbol} theme={theme} />
             <div className="coins-footer-wrapper">
                 <div className="coins">
-                    <CoinsList currencyRate={currencyRate} currencySymbol={currencySymbol} />
+                    <CoinsList currencyRate={currencyRate} currencySymbol={currencySymbol} theme={theme} />
                 </div>
-                <Footer />
+                <Footer theme={theme} />
             </div>
         </div>
     )

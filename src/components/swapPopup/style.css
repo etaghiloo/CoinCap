@@ -28,24 +28,36 @@
     opacity: 1;
     z-index: 5;
 }
+.swap-popup.active.dark .popup-box {
+    background-color: rgb(54, 54, 54);
+}
 .swap-popup.active .popup-box .close {
     text-align: right;
     line-height: 1rem;
 }
 .swap-popup.active .popup-box .close i {
     font-size: 1.4rem;
+    opacity: 0.8;
+}
+.swap-popup.active.dark .popup-box .close i {
+    color: #fff;
 }
 .swap-popup.active .popup-box .close i:hover {
     cursor: pointer;
+    opacity: 1;
 }
 .swap-popup.active .popup-box .networks {
     margin-bottom: 25px;
+}
+.swap-popup.active.dark .popup-box .networks h3.title,
+.swap-popup.active.dark .popup-box .connect h3.title {
+    color: #fff;
 }
 .swap-popup.active .popup-box .networks-wrapper {
     display: flex;
     justify-content: space-between;
 }
-button.network {
+.swap-popup.active button.network {
     width: 48%;
     padding: 10px;
     margin-top: 10px;
@@ -58,11 +70,22 @@ button.network {
     border: 1px solid rgb(236, 239, 241);
     border-radius: 8px;
 }
+.swap-popup.active.dark button.network,
+.swap-popup.active.dark button.connect {
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgb(49, 49, 49);
+    border: 1px solid rgb(37, 37, 37);
+}
 button.network.ethereum:hover,
 button.network.ethereum.clicked {
     border: 1px solid rgb(93, 121, 232);
     background-color: rgb(236, 239, 241);
     position: relative;
+}
+.swap-popup.active.dark button.network.ethereum:hover,
+.swap-popup.active.dark button.network.ethereum.clicked {
+    border: 1px solid rgb(93, 121, 232);
+    background-color: rgb(37, 37, 37);
 }
 button.network.binance:hover,
 button.network.binance.clicked {
@@ -70,8 +93,13 @@ button.network.binance.clicked {
     background-color: rgb(236, 239, 241);
     position: relative;
 }
-button.network.ethereum.clicked::after,
-button.network.binance.clicked::after {
+.swap-popup.active.dark button.network.binance:hover,
+.swap-popup.active.dark button.network.binance.clicked {
+    border: 1px solid rgb(241, 185, 12);
+    background-color: rgb(37, 37, 37);
+}
+.swap-popup.active button.network.ethereum.clicked::after,
+.swap-popup.active button.network.binance.clicked::after {
     width: 15px;
     height: 15px;
     content: "";
@@ -81,6 +109,10 @@ button.network.binance.clicked::after {
     position: absolute;
     top: -5px;
     left: -7px;
+}
+.swap-popup.active.dark button.network.ethereum.clicked::after,
+.swap-popup.active.dark button.network.binance.clicked::after {
+    border: 2px solid rgb(54, 54, 54);;
 }
 button.network img {
     width: 20px;
@@ -111,27 +143,33 @@ button.connect img {
 button.connect.shape-shift {
     margin-top: 10px;
 }
-button.connect.shape-shift:hover {
+.swap-popup.active button.connect.shape-shift:hover,
+.swap-popup.active.dark button.connect.shape-shift:hover {
     color: #406fa9;
     border: 1px solid #406fa9;
 }
-button.connect.metamask:hover {
+.swap-popup.active button.connect.metamask:hover,
+.swap-popup.active.dark button.connect.metamask:hover {
     color: #eb7c14;
     border: 1px solid #eb7c14;
 }
-button.connect.wallet-connect:hover {
+.swap-popup.active button.connect.wallet-connect:hover,
+.swap-popup.active.dark button.connect.wallet-connect:hover {
     color: #3697ff;
     border: 1px solid #3697ff;
 }
-button.connect.torus:hover {
+.swap-popup.active button.connect.torus:hover,
+.swap-popup.active.dark button.connect.torus:hover {
     color: #3697ff;
     border: 1px solid #3697ff;
 }
-button.connect.coinbase-wallet:hover {
+.swap-popup.active button.connect.coinbase-wallet:hover,
+.swap-popup.active.dark button.connect.coinbase-wallet:hover {
     color: #2f5cff;
     border: 1px solid #2f5cff;
 }
-button.connect.binance-chain-wallet:hover {
+.swap-popup.active button.connect.binance-chain-wallet:hover,
+.swap-popup.active.dark button.connect.binance-chain-wallet:hover {
     color: #efb80a;
     border: 1px solid #efb80a;
 }

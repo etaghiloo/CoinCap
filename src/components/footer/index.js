@@ -3,12 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faSquareFacebook } from '@fortawesome/free-brands-svg-icons';
 import "./style.css";
 
-export default function Footer() {
+export default function Footer(props) {
+    const { theme } = props;
     const twitter = <FontAwesomeIcon icon={faTwitter} />
     const facebook = <FontAwesomeIcon icon={faSquareFacebook} />
     
     return (
-        <div className="footer">
+        <div className={`footer ${theme}`}>
             <div className="container">
                 <div className="footer-wrapper">
                     <div className="column one">

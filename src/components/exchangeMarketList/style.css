@@ -7,6 +7,9 @@
 .exchange-market .exchange-market-list .box .pairs {
     display: flex;
 }
+.exchange-market .exchange-market-list.dark .box .pairs a h4 {
+    color: #fff;
+}
 .exchange-market .exchange-market-list .box .pairs a:hover h4 {
     text-decoration: underline;
 }

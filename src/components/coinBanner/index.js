@@ -4,7 +4,7 @@ import { faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import './style.css';
 
 export default function CoinBanner(props) {
-    const { data, currencyRate, currencySymbol } = props;
+    const { data, currencyRate, currencySymbol, theme } = props;
     const caretUp = <FontAwesomeIcon icon={faCaretUp} />
     const caretDown = <FontAwesomeIcon icon={faCaretDown} />
     var NumAbbr = require('number-abbreviate');
@@ -17,7 +17,7 @@ export default function CoinBanner(props) {
 	};
 
     return (
-        <div className="coin-banner">
+        <div className={`coin-banner ${theme}`}>
             <div className="container">
                 <div className="coin-banner-wrapper">
                     <div className="info-left">

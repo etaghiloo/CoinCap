@@ -2,6 +2,12 @@
     padding: 35px 0;
     border-bottom: 1px solid #d4d4d5;
 }
+.coin-page.dark {
+    background: rgb(54, 54, 54);
+}
+.coin-page.dark .chart-swap {
+    border-bottom: none;
+}
 .coin-page .chart-swap .chart-swap-wrapper {
     display: flex;
     justify-content: space-between;
@@ -9,6 +15,9 @@
 .coin-page .markets {
     text-align: center;
     background-color: #eceff1;
+}
+.coin-page.dark .markets {
+    background: rgb(37, 37, 37);
 }
 .coin-page .markets button.green {
     margin-bottom: 22px;

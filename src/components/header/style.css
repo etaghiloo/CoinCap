@@ -5,6 +5,10 @@
     z-index: 2;
     background-color: #fff;
 }
+.header.dark {
+    border-bottom: none;
+    background-color: #000;
+}
 .header .header-wrapper {
     display: flex;
     justify-content: space-between;
@@ -17,8 +21,14 @@
 .header ul.menu-left li a h4 {
     padding: 20px 16px;
 }
+.header.dark ul.menu-left li a h4 {
+    color: #fff;
+}
 .header ul.menu-left li a:hover h4 {
     background-color: rgba(0, 0, 0, 0.03);
+}
+.header.dark ul.menu-left li a:hover h4 {
+    background-color: #2f2f2f;
 }
 .header .logo a img {
     width: auto;
@@ -39,6 +49,9 @@
 }
 .header ul.menu-right li.setting i {
     opacity: 0.9;
+}
+.header.dark ul.menu-right li.setting i {
+    color: #fff;
 }
 .header ul.menu-right li.setting i:hover {
     cursor: pointer;

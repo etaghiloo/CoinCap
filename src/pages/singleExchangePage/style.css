@@ -1,6 +1,9 @@
 .exchange-page {
     text-align: center;
-    background-color: #eceff1;
+    background: #eceff1;
+}
+.exchange-page.dark {
+    background: rgb(37, 37, 37);
 }
 .exchange-page .exchange-market-footer-wrapper {
     margin-top: -100px;

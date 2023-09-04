@@ -21,6 +21,7 @@ export default function SingleCoin() {
     const [loading, setLoading] = useState(false);
     const [currencyRate, setCurrencyRate] = useState();
     const [currencySymbol, setCurrencySymbol] = useState();
+    const [theme, setTheme] = useState();
     const navigate = useNavigate();
     async function getApi() {
         try {
@@ -67,20 +68,20 @@ export default function SingleCoin() {
     }, [limit]);
 
     return (
-        <div className="coin-page">
+        <div className={`coin-page ${theme}`}>
             <ShapeShiftHeader />
-            <Header secondRateTransfer={setCurrencyRate} secondSymbolTransfer={setCurrencySymbol} />
-            <CoinBanner data={coin} dataM={markets} currencyRate={currencyRate} currencySymbol={currencySymbol} />
+            <Header secondRateTransfer={setCurrencyRate} secondSymbolTransfer={setCurrencySymbol} themeTransfer={setTheme} />
+            <CoinBanner data={coin} dataM={markets} currencyRate={currencyRate} currencySymbol={currencySymbol} theme={theme} />
             <div className="chart-swap">
                 <div className="container">
                     <div className="chart-swap-wrapper">
-                        <CoinHistoryChart coinData={coin} currencyRate={currencyRate} currencySymbol={currencySymbol} />
-                        <Swap />
+                        <CoinHistoryChart coinData={coin} currencyRate={currencyRate} currencySymbol={currencySymbol} theme={theme} />
+                        <Swap theme={theme} />
                     </div>
                 </div>
             </div>
             <div className="markets">
-                <CoinMarketsList marketsData={markets} currencyRate={currencyRate} currencySymbol={currencySymbol} />
+                <CoinMarketsList marketsData={markets} currencyRate={currencyRate} currencySymbol={currencySymbol} theme={theme} />
                 <button className="green" onClick={loadMore} disabled={loading}>
                     {loading === true ?
                         <Spinner animation="border" variant="light" size="sm" role="status"></Spinner>
@@ -89,7 +90,7 @@ export default function SingleCoin() {
                     }
                 </button>
             </div>
-            <Footer />
+            <Footer theme={theme} />
         </div>
     )
 }

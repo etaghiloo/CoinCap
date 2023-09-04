@@ -4,7 +4,7 @@ import Select, { components } from "react-select";
 import "./style.css";
 
 export default function Rates(props) {
-    const { firstRateTransfer, firstSymbolTransfer } = props;
+    const { firstRateTransfer, firstSymbolTransfer, theme } = props;
     const [rates, setRates] = useState([]);
     const [loading, setLoading] = useState(false);
     const [selectedCurrency, setSelectedCurrency] = useState(() => {
@@ -66,7 +66,7 @@ export default function Rates(props) {
     }, [selectedCurrency]);
 
     return (
-        <div className="rates-drop-down">
+        <div className={`rates-drop-down ${theme}`}>
             <Select
                 options={rates}
                 formatOptionLabel={formatOptionLabel}
@@ -84,12 +84,12 @@ export default function Rates(props) {
                     placeholder: (base) => ({
                         ...base,
                         fontSize: '0.8rem',
-                        color: 'black',
+                        color: theme === "dark" ? 'white' : 'black',
                         textAlign: 'right',
                     }),
                     input: (base) => ({
                         ...base,
-                        color: 'black',
+                        color: theme === "dark" ? 'white' : 'black',
                         fontSize: '0.8rem',
                         width: '50px',
                     }),
@@ -98,6 +98,7 @@ export default function Rates(props) {
                         border: 'none',
                         outline: 'none',
                         boxShadow: 'none',
+                        background: 'transparent',
                     }),
                     menuList: (base) => ({
                         ...base,
@@ -110,9 +111,9 @@ export default function Rates(props) {
                         cursor: 'pointer',
                         marginTop: '-5px',
                     }),
-                    singleValue: (base, state) => ({
+                    singleValue: (base) => ({
                         ...base,
-                        color: state.isSelected ? 'grey' : 'black',
+                        color: theme === "dark" ? 'white' : 'black',
                         fontSize: '0.8rem',
                         height: '1.2rem',
                     }),

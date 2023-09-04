@@ -10,7 +10,7 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import "./style.css";
 
 export default function SwapPopup(props) {
-    const { enabled, setEnabled } = props;
+    const { enabled, setEnabled, theme } = props;
     const xMark = <FontAwesomeIcon icon={faXmark} />
     const [hideWallets, setHideWallets] = useState(false);
     function close() {
@@ -27,14 +27,14 @@ export default function SwapPopup(props) {
     }, []);
 
     return (
-        <div className={`swap-popup ${enabled == true ? "active" : "inactive"}`}>
+        <div className={`swap-popup ${theme} ${enabled == true ? "active" : "inactive"}`}>
             <div className="background"></div>
             <div className="popup-box">
                 <div className="close">
                     <i onClick={close}>{xMark}</i>
                 </div>
                 <div className="networks">
-                    <h3>Select a network</h3>
+                    <h3 className="title">Select a network</h3>
                     <div className="networks-wrapper">
                         <button className={`network ethereum ${hideWallets == false ? "clicked" : ""}`} id="ethereum" onClick={showSomeWallets}>
                             <img src="https://assets.coincap.io/assets/icons/eth@2x.png" />
@@ -47,7 +47,7 @@ export default function SwapPopup(props) {
                     </div>
                 </div>
                 <div className="connect">
-                    <h3>Connect a wallet</h3>
+                    <h3 className="title">Connect a wallet</h3>
                     <button className={`connect shape-shift ${hideWallets == true ? "hidden" : ""}`}>
                         <h3>Portis By ShapeShift</h3>
                         <img src={portis} />

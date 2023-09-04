@@ -6,7 +6,8 @@ import { faGear, faAngleDown, faXmark } from '@fortawesome/free-solid-svg-icons'
 import SwapPopup from "../swapPopup";
 import "./style.css";
 
-export default function Swap() {
+export default function Swap(props) {
+    const { theme } = props;
     const gear = <FontAwesomeIcon icon={faGear} />
     const angleDown = <FontAwesomeIcon icon={faAngleDown} />
     const xMark = <FontAwesomeIcon icon={faXmark} />
@@ -52,7 +53,13 @@ export default function Swap() {
                         <h4 className="light">token name</h4>
                     </div>
                     <Link>
-                        <img className="explore" src="https://coincap.io/static/icons/etherscan-light.svg" />
+                        <img className="explore" 
+                            src={theme === "dark"
+                            ?
+                            "https://coincap.io/static/icons/etherscan-dark.svg"
+                            :
+                            "https://coincap.io/static/icons/etherscan-light.svg"}
+                        />
                     </Link>
                 </li>
             )
@@ -72,7 +79,13 @@ export default function Swap() {
                         <h4 className="light">token name</h4>
                     </div>
                     <Link>
-                        <img className="explore" src="https://coincap.io/static/icons/etherscan-light.svg" />
+                        <img className="explore" 
+                            src={theme === "dark"
+                            ?
+                            "https://coincap.io/static/icons/etherscan-dark.svg"
+                            :
+                            "https://coincap.io/static/icons/etherscan-light.svg"}
+                        />
                     </Link>
                 </li>
             )
@@ -110,7 +123,7 @@ export default function Swap() {
     }, []);
     
     return (
-        <div className="swap">
+        <div className={`swap ${theme}`}>
             <div className="swap-box">
                 <div className="swap-setting-wrapper">
                     <h3>Swap</h3>
@@ -189,7 +202,7 @@ export default function Swap() {
                     {timeLoopGetTokens()}
                 </ul>
             </div>
-            <SwapPopup enabled={popup} setEnabled={setPopup} />
+            <SwapPopup enabled={popup} setEnabled={setPopup} theme={theme} />
         </div>
     )
 }

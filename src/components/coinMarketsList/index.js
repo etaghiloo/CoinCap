@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "./style.css";
 
 export default function CoinMarketsList(props) {
-    const { marketsData, currencyRate, currencySymbol } = props;
+    const { marketsData, currencyRate, currencySymbol, theme } = props;
     const circle = <FontAwesomeIcon icon={faCircle} />
     const navigate = useNavigate();
     const accessExchange = (row) => {
@@ -96,20 +96,43 @@ export default function CoinMarketsList(props) {
         },
     ];
     const customStyles = {
-        rows: {
-            style: {
-                minHeight: "44px",
-                fontSize: "14px",
-                fontWeight: 400,
-            },
-        },
         headRow: {
             style: {
                 minHeight: "44px",
                 fontSize: "14px",
                 fontWeight: 400,
-                color: "#00000099",
-                backgroundColor: "#fafafa",
+                color: theme === "dark" ? "#8a8a8a" : "#00000099",
+                backgroundColor: theme === "dark" ? "#000" : "#fafafa",
+            },
+        },
+        headCells: {
+            style: {
+                '&:hover': {
+                    color: theme === "dark" ? "#fff" : "#000",
+                },
+            },
+        },
+        rows: {
+            style: {
+                minHeight: "58px",
+                fontSize: "14px",
+                fontWeight: 400,
+                color: theme === "dark" ? '#fff' : '#000',
+                backgroundColor: theme === "dark" ? "rgb(54, 54, 54)" : "#fff",
+                transitionDuration: '0.2s',
+                transitionProperty: 'background-color',
+            },
+            highlightOnHoverStyle: {
+                backgroundColor: theme === "dark" ? "rgb(37, 37, 37)" : "rgba(0, 0, 0, 0.12)",
+                borderBottomColor: theme === "dark" ? "rgb(37, 37, 37)" : "rgba(0, 0, 0, 0.12)",
+                outlineColor: theme === "dark" ? "rgb(37, 37, 37)" : "rgba(0, 0, 0, 0.12)",
+                color: theme === "dark" ? '#fff' : '#000',
+            }
+        },
+        expanderRow: {
+            style: {
+                color: theme === "dark" ? '#fff' : '#000',
+                backgroundColor: theme === "dark" ? "rgb(54, 54, 54)" : "#fff",
             },
         },
     };
@@ -121,7 +144,7 @@ export default function CoinMarketsList(props) {
 	};
     
     return (
-        <div className="markets-list">
+        <div className={`markets-list ${theme}`}>
             <div className="container">
                 <div className="box">
                         <DataTable

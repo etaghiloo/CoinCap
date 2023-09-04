@@ -21,9 +21,16 @@
     outline: none;
     font-size: 0.9rem;
 }
+.header.dark ul.menu-right li.search .search-bar input.active {
+    background-color: rgb(54, 54, 54);
+    color: #fff;
+}
 .header ul.menu-right li.search .search-bar i {
     padding: 0 9px;
     font-size: 0.98rem;
+}
+.header.dark ul.menu-right li.search .search-bar i {
+    color: #fff;
 }
 .header ul.menu-right li.search .search-bar .spinner {
     margin: 0 9px;
@@ -43,9 +50,15 @@
     text-align: left;
     padding: 15px;
 }
+.header.dark ul.menu-right li.search .result.active {
+    background-color: rgb(54, 54, 54);
+}
 .header ul.menu-right li.search .result.active h3 {
     border-bottom: 1px solid #000;
     margin-bottom: 14px;
+}
+.header.dark ul.menu-right li.search .result.active h3 {
+    color: #fff;
 }
 .header ul.menu-right li.search .result.active h3.exchanges {
     margin: 25px 0 14px 0;
@@ -53,6 +66,12 @@
 .header ul.menu-right li.search .result.active ul li a h4 {
     padding: 0 0 7px 0;
 }
+.header.dark ul.menu-right li.search .result.active ul li a h4 {
+    color: #9f9f9f;
+}
 .header ul.menu-right li.search .result.active ul li a:hover h4 {
     color: #000;
+}
+.header.dark ul.menu-right li.search .result.active ul li a:hover h4 {
+    color: #fff;
 }

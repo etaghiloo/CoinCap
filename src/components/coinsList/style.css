@@ -23,6 +23,13 @@
     font-size: 0.7rem;
     margin-top: 3px;
 }
+.coins-list.dark .logo-name a h4 {
+    color: #fff;
+}
+.coins-list.dark .logo-name a h4.light {
+    color: #fff;
+    opacity: 0.6;
+}
 .coins-list .update-button {
     position: fixed;
     bottom: 30px;

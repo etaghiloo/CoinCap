@@ -1,15 +1,24 @@
 .swap {
     position: relative;
 }
+.swap.dark h4.light {
+    color: rgba(255, 255, 255, 0.54);
+}
 .swap .swap-box {
     width: 360px;
     height: 410px;
     margin-top: 35px;
-    background-color: #fff;
+    background: #fff;
     border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 9px;
     padding: 20px;
     z-index: 2;
+}
+.swap.dark .swap-box {
+    background: rgb(54, 54, 54);
+}
+.swap.dark .swap-box h3 {
+    color: #fff;
 }
 .swap .swap-box .swap-setting-wrapper {
     display: flex;
@@ -20,6 +29,9 @@
     font-size: 1.3rem;
     opacity: 0.8;
     transition: all 0.2s;
+}
+.swap.dark .swap-box .swap-setting-wrapper i {
+    color: #fff;
 }
 .swap .swap-box .swap-setting-wrapper i:hover {
     cursor: pointer;
@@ -33,10 +45,19 @@
     background: rgb(249, 249, 249);
     margin: 16px 0;
 }
+.swap.dark .swap-box .sell-box,
+.swap.dark .swap-box .get-box {
+    background: rgb(49, 49, 49);
+    border: 1px solid rgb(37, 37, 37);
+}
 .swap .swap-box .sell-box h4,
 .swap .swap-box .get-box h4 {
     font-weight: 600;
     opacity: 0.7;
+}
+.swap.dark .swap-box .sell-box h4,
+.swap.dark .swap-box .get-box h4 {
+    color: rgba(255, 255, 255, 0.54);
 }
 .swap .swap-box .sell-box #sell-input-token-wrapper,
 .swap .swap-box .get-box #get-input-select-wrapper {
@@ -83,6 +104,12 @@
 .swap .swap-box .get-box .select-drop-down i {
     font-size: 1.1rem;
 }
+.swap.dark .swap-box .sell-box .select-drop-down i,
+.swap.dark .swap-box .get-box .token-drop-down i,
+.swap.dark .swap-box .sell-box .token-drop-down i,
+.swap.dark .swap-box .get-box .select-drop-down i {
+    color: #fff;
+}
 .swap .swap-box .sell-box input,
 .swap .swap-box .get-box input {
     width: 100%;
@@ -92,6 +119,10 @@
     color: rgba(0, 0, 0, 0.9);
     border: none;
     outline: none;
+}
+.swap .swap-box .sell-box input,
+.swap .swap-box .get-box input {
+    color: rgba(255, 255, 255, 0.54);
 }
 .swap .swap-box .shuffle-icon {
     width: 25px;
@@ -149,6 +180,12 @@
     z-index: 3;
     animation: 1s slide-up;
 }
+.swap .swap-sell-tokens-list.active,
+.swap .swap-get-tokens-list.active {
+    background-color: rgb(54, 54, 54);
+    color: #fff;
+}
+
 @keyframes slide-up {
     0% {
         margin-top: 410px;
@@ -188,6 +225,11 @@
     outline: none;
     margin: 17px 0;
 }
+.swap.dark .swap-sell-tokens-list.active input.token-search-bar,
+.swap.dark .swap-get-tokens-list.active input.token-search-bar {
+    background: rgb(37, 37, 37);
+    color: #fff;
+}
 .swap .swap-sell-tokens-list.active ul,
 .swap .swap-get-tokens-list.active ul {
     overflow: scroll;
@@ -207,6 +249,10 @@
     cursor: pointer;
     background-color: rgb(236, 239, 241, 0.5);
     border-radius: 8px;
+}
+.swap.dark .swap-sell-tokens-list.active ul li:hover,
+.swap.dark .swap-get-tokens-list.active ul li:hover {
+    background-color: #2f2f2f;
 }
 .swap .swap-sell-tokens-list.active ul li img.logo,
 .swap .swap-get-tokens-list.active ul li img.logo {
@@ -231,6 +277,10 @@
     color: rgba(0, 0, 0, 0.6);
     padding: 0px 5px;
     border-radius: 15px;
+}
+.swap.dark .swap-sell-tokens-list.active ul li .symbol-name-ERC h5,
+.swap.dark .swap-get-tokens-list.active ul li .symbol-name-ERC h5 {
+    color: rgba(255, 255, 255, 0.54);
 }
 .swap .swap-sell-tokens-list.active ul li a img.explore,
 .swap .swap-get-tokens-list.active ul li a img.explore  {
