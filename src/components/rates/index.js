@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Select, { components } from "react-select";
+import useWindowSize from "../../customHooks/useWindowSize";
 import "./style.css";
 
 export default function Rates(props) {
     const { firstRateTransfer, firstSymbolTransfer, theme } = props;
     const [rates, setRates] = useState([]);
     const [loading, setLoading] = useState(false);
+    const windowWidth = useWindowSize();
     const [selectedCurrency, setSelectedCurrency] = useState(() => {
         const savedItem = localStorage.getItem("currency");
         const parsedItem = JSON.parse(savedItem);
@@ -105,8 +107,8 @@ export default function Rates(props) {
                         color: 'grey',
                         fontSize: '0.8rem',
                         textAlign: 'left',
-                        width: '320px',
-                        backgroundColor: 'white',
+                        width: windowWidth <= 630 ? '200px' : '270px',
+                        backgroundColor: theme === "dark" ? 'black' : 'white',
                         boxShadow: 'rgba(0, 0, 0, 0.4) 0px 2px 15px -3px',
                         cursor: 'pointer',
                         marginTop: '-5px',
@@ -122,10 +124,10 @@ export default function Rates(props) {
                         color: 'black',
                         fontSize: '0.8rem',
                         cursor: 'pointer',
-                        backgroundColor: state.isSelected ? 'rgba(230, 230, 230, 0.5)' : 'white',
+                        backgroundColor: theme === "dark" ? 'black' : 'white',
                         fontWeight: state.isSelected ? 'bold' : 'normal',
                         ':hover': {
-                            backgroundColor: 'rgba(230, 230, 230, 0.8)',
+                            backgroundColor: theme === "dark" ? 'rgba(230, 230, 230, 0.2)' : 'rgba(230, 230, 230, 0.8)',
                         },
                     }),
                     valueContainer: (base) => ({

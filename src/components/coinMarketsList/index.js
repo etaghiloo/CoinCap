@@ -1,11 +1,15 @@
+import { useState, useEffect } from "react";
 import DataTable from "react-data-table-component";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from "react-router-dom";
+import useWindowSize from "../../customHooks/useWindowSize";
 import "./style.css";
 
 export default function CoinMarketsList(props) {
     const { marketsData, currencyRate, currencySymbol, theme } = props;
+    const [hideThreeColumns, setHideThreeColumns] = useState(false);
+    const windowWidth = useWindowSize();
     const circle = <FontAwesomeIcon icon={faCircle} />
     const navigate = useNavigate();
     const accessExchange = (row) => {
@@ -50,12 +54,15 @@ export default function CoinMarketsList(props) {
             selector: row => row.exchangeId,
             sortable: true,
             sortFunction: caseInsensitiveSort,
-            maxWidth: "220px",
+            maxWidth: 770 < windowWidth <= 1100 ? "120px" : "220px",
+            maxWidth: windowWidth <= 770 ? "290px" : "220px" ,
+            minWidth: windowWidth <= 430 ? "87px" : "100px" ,
         },
         {
             name: "Pair",
             selector: row => row.baseSymbol + "/" + row.quoteSymbol,
-            maxWidth: "180px",
+            maxWidth: windowWidth <= 950 ? "100px" : "180px",
+            minWidth: windowWidth <= 430 ? "70px" : "80px" ,
             right: true,
         },
         {
@@ -63,8 +70,9 @@ export default function CoinMarketsList(props) {
             selector: row => row.priceUsd,
             format: row => currencySymbol + numberFormat(decimal(row.priceUsd/currencyRate)),
             sortable: true,
-            maxWidth: "190px",
+            maxWidth: windowWidth <= 950 ? "150px" : "240px",
             right: true,
+            omit: hideThreeColumns,
         },
         {
             name: "Volume (24Hr)",
@@ -72,7 +80,8 @@ export default function CoinMarketsList(props) {
             format: row => currencySymbol + numberFormat(decimal(row.volumeUsd24Hr/currencyRate)),
             sortable: true,
             sortFunction: volumeSort,
-            maxWidth: "270px",
+            maxWidth: "350px",
+            minWidth: "180px",
             right: true,
         },
         {
@@ -81,15 +90,18 @@ export default function CoinMarketsList(props) {
             format: row => decimal(row.volumePercent) + "%",
             sortable: true,
             sortFunction: volumePercentSort,
-            maxWidth: "170px",
+            maxWidth: windowWidth <= 950 ? "100px" : "120px",
             right: true,
+            omit: hideThreeColumns,
         },
         {
             name: "Status",
             selector: row => row.socket,
             sortable: true,
-            maxWidth: "100px",
+            maxWidth: windowWidth <= 950 ? "70px" : "100px",
+            minWidth: "70px",
             center: true,
+            omit: hideThreeColumns,
             cell: row => (
                 <div className="status-availability">{circle}</div>
             ),
@@ -107,6 +119,9 @@ export default function CoinMarketsList(props) {
         },
         headCells: {
             style: {
+                fontSize: windowWidth <= 950 ? "11.5px" : "14px",
+                paddingLeft: windowWidth <= 950 ? "8px" : "16px",
+                paddingRight: windowWidth <= 950 ? "8px" : "16px",
                 '&:hover': {
                     color: theme === "dark" ? "#fff" : "#000",
                 },
@@ -135,6 +150,13 @@ export default function CoinMarketsList(props) {
                 backgroundColor: theme === "dark" ? "rgb(54, 54, 54)" : "#fff",
             },
         },
+        cells: {
+            style: {
+                fontSize: windowWidth <= 430 ? "12px" : "14px",
+                paddingLeft: windowWidth <= 950 ? "8px" : "16px",
+                paddingRight: windowWidth <= 950 ? "8px" : "16px",
+            },
+        },
     };
     function decimal(x) {
         return Number.parseFloat(x).toFixed(2);
@@ -142,10 +164,17 @@ export default function CoinMarketsList(props) {
 	function numberFormat(x) {
 		return Intl.NumberFormat(undefined, {minimumFractionDigits: 2}).format(x);
 	};
+    useEffect(() => {
+        if (windowWidth <= 770) {
+            setHideThreeColumns(true);
+        } else {
+            setHideThreeColumns(false);
+        }
+    }, [windowWidth]);
     
     return (
         <div className={`markets-list ${theme}`}>
-            <div className="container">
+            <div className="container-orig">
                 <div className="box">
                         <DataTable
                             columns={columns} data={marketsData}

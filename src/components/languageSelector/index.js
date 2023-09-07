@@ -1,8 +1,12 @@
 import { useState } from "react";
 import Select from "react-select";
+import useWindowSize from "../../customHooks/useWindowSize";
+import "./style.css";
 
 export default function LanguageSelector(props) {
     const { theme } = props;
+    const [selectedLanguage, setSelectedLanguage] = useState();
+    const windowWidth = useWindowSize();
     const languages = [
         {
             value: "English",
@@ -22,12 +26,15 @@ export default function LanguageSelector(props) {
         },
         
     ];
-    const [selectedLanguage, setSelectedLanguage] = useState();
+    const formatOptionLabel = ({ label }) => (
+        <div className="language">{label}</div>
+    );
 
     return (
         <div className={`language-drop-down ${theme}`}>
             <Select
                 options={languages}
+                formatOptionLabel={formatOptionLabel}
                 placeholder="English"
                 value={selectedLanguage}
                 getOptionValue ={(option) => option.value}
@@ -62,13 +69,13 @@ export default function LanguageSelector(props) {
                         color: 'grey',
                         fontSize: '0.8rem',
                         textAlign: 'left',
-                        width: '320px',
-                        backgroundColor: 'white',
+                        width: windowWidth <= 630 ? '200px' : '270px',
+                        backgroundColor: theme === "dark" ? 'black' : 'white',
                         boxShadow: 'rgba(0, 0, 0, 0.4) 0px 2px 15px -3px',
                         cursor: 'pointer',
                         marginTop: '-5px',
                     }),
-                    singleValue: (base, state) => ({
+                    singleValue: (base) => ({
                         ...base,
                         color: theme === "dark" ? 'white' : 'black',
                         fontSize: '0.8rem',
@@ -79,10 +86,10 @@ export default function LanguageSelector(props) {
                         color: 'black',
                         fontSize: '0.8rem',
                         cursor: 'pointer',
-                        backgroundColor: state.isSelected ? 'rgba(230, 230, 230, 0.5)' : 'white',
+                        backgroundColor: theme === "dark" ? 'black' : 'white',
                         fontWeight: state.isSelected ? 'bold' : 'normal',
                         ':hover': {
-                            backgroundColor: 'rgba(230, 230, 230, 0.8)',
+                            backgroundColor: theme === "dark" ? 'rgba(230, 230, 230, 0.2)' : 'rgba(230, 230, 230, 0.8)',
                         },
                     }),
                     valueContainer: (base) => ({

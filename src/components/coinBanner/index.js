@@ -18,7 +18,7 @@ export default function CoinBanner(props) {
 
     return (
         <div className={`coin-banner ${theme}`}>
-            <div className="container">
+            <div className="container-orig">
                 <div className="coin-banner-wrapper">
                     <div className="info-left">
                         <div className="rank">
@@ -47,27 +47,29 @@ export default function CoinBanner(props) {
                             </div>
                         </div>
                     </div>
-                    <div className="market-website">
-                        <div className="market">
-                            <h4>Market Cap</h4>
-                            <h3>{currencySymbol + numAbbr.abbreviate(data.marketCapUsd/currencyRate, 2)}</h3>
+                    <div className="info-right">
+                        <div className="market-website">
+                            <div className="market">
+                                <h4>Market Cap</h4>
+                                <h3>{currencySymbol + numAbbr.abbreviate(data.marketCapUsd/currencyRate, 2)}</h3>
+                            </div>
+                            <Link>
+                                <button className="green">Website</button>
+                            </Link>
                         </div>
-                        <Link>
-                            <button className="green">Website</button>
-                        </Link>
-                    </div>
-                    <div className="volume-explorer">
-                        <div className="volume">
-                            <h4>Volume (24Hr)</h4>
-                            <h3>{currencySymbol + numAbbr.abbreviate(data.volumeUsd24Hr/currencyRate, 2)}</h3>
+                        <div className="volume-explorer">
+                            <div className="volume">
+                                <h4>Volume (24Hr)</h4>
+                                <h3>{currencySymbol + numAbbr.abbreviate(data.volumeUsd24Hr/currencyRate, 2)}</h3>
+                            </div>
+                            <Link>
+                                <button className="green">Explorer</button>
+                            </Link>
                         </div>
-                        <Link>
-                            <button className="green">Explorer</button>
-                        </Link>
-                    </div>
-                    <div className="supply">
-                        <h4>Supply</h4>
-                        <h3>{numAbbr.abbreviate(data.supply, 2)} BTC</h3>
+                        <div className="supply">
+                            <h4>Supply</h4>
+                            <h3>{numAbbr.abbreviate(data.supply, 2)} BTC</h3>
+                        </div>
                     </div>
                 </div>
             </div>

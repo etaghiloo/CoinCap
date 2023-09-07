@@ -73,7 +73,7 @@ export default function SingleCoin() {
             <Header secondRateTransfer={setCurrencyRate} secondSymbolTransfer={setCurrencySymbol} themeTransfer={setTheme} />
             <CoinBanner data={coin} dataM={markets} currencyRate={currencyRate} currencySymbol={currencySymbol} theme={theme} />
             <div className="chart-swap">
-                <div className="container">
+                <div className="container-orig">
                     <div className="chart-swap-wrapper">
                         <CoinHistoryChart coinData={coin} currencyRate={currencyRate} currencySymbol={currencySymbol} theme={theme} />
                         <Swap theme={theme} />

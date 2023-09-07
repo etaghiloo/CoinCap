@@ -1,18 +1,27 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import useWindowSize from "../../customHooks/useWindowSize";
 import "./style.css";
 
 export default function HomeBanner(props) {
     const { currencyRate, currencySymbol, theme } = props;
+    const caretDown = <FontAwesomeIcon icon={faCaretDown} />
     const [coins, setCoins] = useState([]);
     const [exchanges, setExchanges] = useState([]);
     const [bitcoin, setBitcoin] = useState([]);
     const [limit, setLimit] = useState(2000);
     const [loading, setLoading] = useState(false);
+    const windowWidth = useWindowSize();
+    const [marketSnapshot, setMarketSnapshot] = useState(false);
     const allMarketCaps = marketCapCollector(coins);
     const allExchangeVols = exchangeVolCollector(coins);
     var NumAbbr = require('number-abbreviate');
     var numAbbr = new NumAbbr(['K', 'M', 'B', 'T']);
+    function openMarketSnapshot() {
+        setMarketSnapshot(!marketSnapshot);
+    }
     function decimal(x) {
         return parseFloat(x).toFixed(1);
     };
@@ -76,9 +85,13 @@ export default function HomeBanner(props) {
     }, []);
 
     return (
-        <div className={`home-banner ${theme}`}>
-            <div className="container">
-                <div className="home-banner-wrapper">
+        <div className={`home-banner ${theme} ${windowWidth <= 770 ? "mobile-view" : ""}`}>
+            <div className="container-orig">
+                <div className="market-snapshot" onClick={openMarketSnapshot}>
+                    <h4>MARKET SNAPSHOT</h4>
+                    <i className={marketSnapshot === false ? "rotated" : ""}>{caretDown}</i>
+                </div>
+                <div className={`home-banner-wrapper ${marketSnapshot === true ? "active" : ""}`}>
                     <div className="market-cap">
                         <h4>MARKET CAP</h4>
                         <h2>{currencySymbol + numAbbr.abbreviate(sum(allMarketCaps), 2)}</h2>

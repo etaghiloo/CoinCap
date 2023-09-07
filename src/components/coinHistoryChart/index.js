@@ -232,7 +232,7 @@ export default function CoinHistoryChart(props) {
 			fill: am5.color(0x666666),
 			inside: true,
 			dy: -10,
-			centerX: -630,
+			centerX: 0,
 		});
 		yAxis.get("renderer").grid.template.setAll({
 			opacity: 0.7,

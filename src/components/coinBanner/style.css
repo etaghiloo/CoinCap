@@ -1,6 +1,6 @@
 .coin-banner {
     background: linear-gradient(to right, rgb(63, 81, 181), rgb(100, 181, 246));
-    padding: 40px;
+    padding: 40px 0;
     color: #fff;
 }
 .coin-banner.dark {
@@ -67,4 +67,9 @@
 }
 .coin-banner .info-left .nspc .price-change i {
     font-size: 1.1rem;
+}
+.coin-banner .info-right {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
 }

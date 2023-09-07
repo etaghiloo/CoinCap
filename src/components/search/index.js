@@ -20,7 +20,7 @@ export default function Search() {
     const resultRef = useRef(null);
     useEffect(() => {
         let handler = (e) => {
-            if(!resultRef.current.contains(e.target)) {
+            if (!resultRef.current.contains(e.target)) {
                 setClose(true);
                 setInput(false);
             }

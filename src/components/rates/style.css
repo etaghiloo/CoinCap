@@ -1,3 +1,6 @@
 .rates-drop-down .id {
     color: #818181;
 }
+.rates-drop-down.dark .symbol {
+    color: #d9d9d9;
+}

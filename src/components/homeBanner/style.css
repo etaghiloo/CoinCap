@@ -2,11 +2,16 @@
     background: linear-gradient(to right, rgb(63, 81, 181), rgb(100, 181, 246));
     padding: 25px 40px;
     color: #fff;
-    min-height: 200px;
+    height: 200px;
     text-align: center;
 }
 .home-banner.dark {
     background: linear-gradient(to right, rgb(66, 66, 66), rgb(66, 66, 66));
+}
+.home-banner .market-snapshot {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
 }
 .home-banner .home-banner-wrapper {
     display: flex;

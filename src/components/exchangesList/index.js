@@ -1,12 +1,16 @@
+import { useState, useEffect } from "react";
 import DataTable from "react-data-table-component";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import TopPair from "../topPair";
 import { useNavigate } from "react-router-dom";
+import useWindowSize from "../../customHooks/useWindowSize";
 import "./style.css";
 
 export default function ExchangesList(props) {
     const { exchangesData, currencyRate, currencySymbol, theme } = props;
+    const [hideFourColumns, setHideFourColumns] = useState(false);
+    const windowWidth = useWindowSize();
     const circle = <FontAwesomeIcon icon={faCircle} />
     const navigate = useNavigate();
     const accessExchange = (row) => {
@@ -64,34 +68,23 @@ export default function ExchangesList(props) {
             selector: row => row.rank,
             sortable: true,
             maxWidth: "80px",
+            minWidth: windowWidth <= 950 ? "80px" : "100px",
             sortFunction: rankSort,
             center: true,
+            omit: hideFourColumns,
         },
         {
             name: "Name",
             selector: row => row.name,
             sortable: true,
             sortFunction: caseInsensitiveSort,
-            // ignoreRowClick: true,
-            // maxWidth: "300px",
-            // cell: row => (
-            //     <Link to={`/exchanges/${row.exchangeId}`}>
-            //       {row.name}
-            //     </Link>
-            // ),
-            // cell: row => (
-            //     <div data-tag="allowRowEvents">
-            //       <div aria-hidden="true" onClick={e => onRowClick(e, row.exchangeId)}>
-            //         {row.name}
-            //       </div>
-            //     </div>
-            // ),
         },
         {
             name: "Trading Pairs",
             selector: row => row.tradingPairs,
             sortable: true,
             maxWidth: "150px",
+            minWidth: "90px",
             right: true,
             sortFunction: pairsSort,
         },
@@ -101,6 +94,7 @@ export default function ExchangesList(props) {
             sortable: true,
             maxWidth: "180px",
             right: true,
+            omit: hideFourColumns,
         },
         {
             name: "Volume (24Hr)",
@@ -117,14 +111,18 @@ export default function ExchangesList(props) {
             format: row => decimal(row.percentTotalVolume) + "%",
             sortable: true,
             maxWidth: "120px",
+            minWidth: windowWidth <= 950 ? "77px" : "100px",
             right: true,
+            omit: hideFourColumns,
         },
         {
             name: "Status",
             selector: row => row.socket,
             sortable: true,
             maxWidth: "90px",
+            minWidth: windowWidth <= 950 ? "90px" : "100px",
             center: true,
+            omit: hideFourColumns,
             cell: row => (
                 <div className="status-availability">{circle}</div>
             ),
@@ -156,6 +154,9 @@ export default function ExchangesList(props) {
         },
         headCells: {
             style: {
+                paddingLeft: windowWidth <= 950 ? "8px" : "16px",
+                paddingRight: windowWidth <= 950 ? "8px" : "16px",
+                fontSize: windowWidth <= 950 ? "11.5px" : "14px",
                 '&:hover': {
                     color: theme === "dark" ? "#fff" : "#000",
                 },
@@ -184,14 +185,27 @@ export default function ExchangesList(props) {
                 backgroundColor: theme === "dark" ? "rgb(54, 54, 54)" : "#fff",
             },
         },
+        cells: {
+            style: {
+                paddingLeft: windowWidth <= 950 ? "8px" : "16px",
+                paddingRight: windowWidth <= 950 ? "8px" : "16px",
+            }
+        }
     };
     function decimal(x) {
         return parseFloat(x).toFixed(2);
     };
+    useEffect(() => {
+        if (windowWidth <= 770) {
+            setHideFourColumns(true);
+        } else {
+            setHideFourColumns(false);
+        }
+    }, [windowWidth]);
 
     return (
         <div className={`exchanges-list ${theme}`}>
-            <div className="container">
+            <div className="container-orig">
                 <div className="box">
                         <DataTable
                             columns={columns} data={exchangesData}

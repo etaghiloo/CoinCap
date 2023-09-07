@@ -6,6 +6,7 @@ import axios from "axios";
 import Spinner from 'react-bootstrap/Spinner';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import updateButton from "../../update-button-white.png";
+import useWindowSize from "../../customHooks/useWindowSize";
 import "./style.css";
 
 export default function CoinsList(props) {
@@ -13,6 +14,9 @@ export default function CoinsList(props) {
     const [coins, setCoins] = useState([]);
     const [limit, setLimit] = useState(20);
     const [loading, setLoading] = useState(false);
+    const [hideTwoColumns, setHideTwoColumns] = useState(false);
+    const [hideThreeColumns, setHideThreeColumns] = useState(false);
+    const windowWidth = useWindowSize();
     var NumAbbr = require('number-abbreviate');
     var numAbbr = new NumAbbr(['k', 'm', 'b', 't']);
     const rankSort = (rowA, rowB) => {
@@ -108,14 +112,16 @@ export default function CoinsList(props) {
             name: "Rank",
             selector: row => row.rank,
             sortable: true,
-            maxWidth: "60px",
+            width: windowWidth <= 950 ? "75px" : "85px",
             sortFunction: rankSort,
             center: true,
+            omit: hideThreeColumns,
         },
         {
             name: "Name",
             selector: row => row.name,
             sortable: true,
+            minWidth: "130px",
             sortFunction: caseInsensitiveSort,
             cell: row => (
                 <div className="logo-name">
@@ -133,7 +139,7 @@ export default function CoinsList(props) {
             format: row => currencySymbol + numberFormat(decimal((row.priceUsd)/currencyRate)),
             sortable: true,
             sortFunction: priceSort,
-            maxWidth: "160px",
+            maxWidth: windowWidth <= 430 ? "120px" : "180px",
             right: true,
         },
         {
@@ -142,8 +148,9 @@ export default function CoinsList(props) {
             format: row => currencySymbol + numAbbr.abbreviate((row.marketCapUsd)/currencyRate, 2),
             sortable: true,
             sortFunction: marketCapSort,
-            maxWidth: "135px",
+            maxWidth: "130px",
             right: true,
+            omit: hideThreeColumns,
         },
         {
             name: "VWAP (24Hr)",
@@ -153,6 +160,7 @@ export default function CoinsList(props) {
             sortFunction: vwapSort,
             maxWidth: "160px",
             right: true,
+            omit: hideTwoColumns,
         },
         {
             name: "Supply",
@@ -162,6 +170,7 @@ export default function CoinsList(props) {
             sortFunction: supplySort,
             maxWidth: "100px",
             right: true,
+            omit: hideTwoColumns,
         },
         {
             name: "Volume (24Hr)",
@@ -171,14 +180,15 @@ export default function CoinsList(props) {
             sortFunction: volumeSort,
             maxWidth: "145px",
             right: true,
+            omit: hideThreeColumns,
         },
         {
-            name: "Change (24Hr)",
+            name: windowWidth <= 770 ? "(24Hr)" : "Change (24Hr)",
             selector: row => row.changePercent24Hr,
             format: row => decimal(row.changePercent24Hr) + "%",
             sortable: true,
             sortFunction: changeSort,
-            maxWidth: "145px",
+            maxWidth: windowWidth <= 770 ? "85px" : "145px",
             right: true,
             conditionalCellStyles: [
                 {
@@ -208,6 +218,7 @@ export default function CoinsList(props) {
         },
         headCells: {
             style: {
+                fontSize: windowWidth <= 950 ? "11.5px" : "14px",
                 '&:hover': {
                     color: theme === "dark" ? "#fff" : "#000",
                 },
@@ -236,6 +247,11 @@ export default function CoinsList(props) {
                 backgroundColor: theme === "dark" ? "rgb(54, 54, 54)" : "#fff",
             },
         },
+        cells: {
+            style: {
+                fontSize: windowWidth <= 430 ? "12px" : "14px",
+            }
+        }
     };
     async function getApi() {
         try {
@@ -269,10 +285,24 @@ export default function CoinsList(props) {
         // }, 1000)
         // return () => {clearInterval(interval)}
     }, [limit]);
+    useEffect(() => {
+        if (windowWidth > 1100) {
+            setHideTwoColumns(false);
+            setHideThreeColumns(false);
+        }
+        else if (770 < windowWidth <= 1100) {
+            setHideTwoColumns(true);
+            setHideThreeColumns(false);
+        }
+        if (windowWidth <= 770) {
+            setHideTwoColumns(true);
+            setHideThreeColumns(true);
+        }
+    }, [windowWidth]);
 
     return (
         <div className={`coins-list ${theme}`}>
-            <div className="container">
+            <div className="container-orig">
                 <div className="box">
                     <DataTable
                         columns={columns} data={coins}

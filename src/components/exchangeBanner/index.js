@@ -11,7 +11,7 @@ export default function ExchangeBanner(props) {
 
     return (
         <div className={`exchange-banner ${theme}`}>
-            <div className="container">
+            <div className="container-orig">
                 <div className="exchange-banner-wrapper">
                     <div className="info-left">
                         <div className="rank">
@@ -28,18 +28,20 @@ export default function ExchangeBanner(props) {
                             </div>
                         </div>
                     </div>
-                    <div className="volume-website">
-                        <div className="volume">
-                            <h4>Volume (24Hr)</h4>
-                            <h3>{"$" + numberFormat((exchangeData.volumeUsd))}</h3>
+                    <div className="info-right">
+                        <div className="volume-website">
+                            <div className="volume">
+                                <h4>Volume (24Hr)</h4>
+                                <h3>{"$" + numberFormat((exchangeData.volumeUsd))}</h3>
+                            </div>
+                            <Link to={exchangeData.exchangeUrl}>
+                                <button className="green"><h4>Website</h4></button>
+                            </Link>
                         </div>
-                        <Link to={exchangeData.exchangeUrl}>
-                            <button className="green"><h4>Website</h4></button>
-                        </Link>
-                    </div>
-                    <div className="top-pair">
-                        <h4>Top Pair</h4>
-                        <h3><TopPair exchangeId={exchangeId}/></h3>
+                        <div className="top-pair">
+                            <h4>Top Pair</h4>
+                            <h3><TopPair exchangeId={exchangeId}/></h3>
+                        </div>
                     </div>
                 </div>
             </div>

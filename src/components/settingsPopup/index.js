@@ -66,10 +66,10 @@ export default function SettingsPopup(props) {
                         <i onClick={flashClick} className={`${flash === true ? "active" : "inactive" }`}>{check}</i>
                     </div>
                     <div className="settings-rates">
-                        <Rates firstRateTransfer={setCurrencyRate} firstSymbolTransfer={setCurrencySymbol} />
+                        <Rates firstRateTransfer={setCurrencyRate} firstSymbolTransfer={setCurrencySymbol} theme={theme} />
                     </div>
                     <div className="settings-language">
-                        <LanguageSelector />
+                        <LanguageSelector theme={theme} />
                     </div>
                 </div>
             </div>

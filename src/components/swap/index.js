@@ -19,7 +19,7 @@ export default function Swap(props) {
     const [selectedGetTokenSymbol, setSelectedGetTokenSymbol] = useState("Select a token");
     const [sellTokensList, setSellTokensList] = useState(false);
     const [getTokensList, setGetTokensList] = useState(false);
-    const [popup, setPopup] = useState(false)
+    const [popup, setPopup] = useState(false);
     async function getApi() {
         try {
             setLoading(true);

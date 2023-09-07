@@ -1,12 +1,16 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import DataTable from "react-data-table-component";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
+import useWindowSize from "../../customHooks/useWindowSize";
 import "./style.css";
 
 export default function ExchangeMarketList(props) {
     const { exchangeMarketData, currencyRate, currencySymbol, theme } = props;
     const circle = <FontAwesomeIcon icon={faCircle} />
+    const [hideFiveColumns, setHideFiveColumns] = useState(false);
+    const windowWidth = useWindowSize();
     var NumAbbr = require('number-abbreviate');
     var numAbbr = new NumAbbr(['k', 'm', 'b', 't']);
     const caseInsensitiveSort = (rowA, rowB) => {
@@ -81,7 +85,8 @@ export default function ExchangeMarketList(props) {
             selector: row => row.baseSymbol + "/" + row.quoteSymbol,
             sortable: true,
             sortFunction: caseInsensitiveSort,
-            maxWidth: "150px",
+            maxWidth: "475px",
+            minWidth: "90px",
             cell: row => (
                 <div className="pairs">
                     <Link to={`/assets/${row.baseId}`}>
@@ -97,10 +102,11 @@ export default function ExchangeMarketList(props) {
         {
             name: "Rate",
             selector: row => row.priceQuote,
-            format: row => decimalFour(row.priceQuote),
+            format: row => decimal(row.priceQuote),
             sortable: true,
             sortFunction: rateSort,
-            maxWidth: "180px",
+            maxWidth: windowWidth <= 950 ? "90px" : "120px",
+            minWidth: "81px",
             right: true,
         },
         {
@@ -110,7 +116,9 @@ export default function ExchangeMarketList(props) {
             sortable: true,
             sortFunction: priceSort,
             maxWidth: "170px",
+            minWidth: windowWidth > 950 ? "145px" : "100px",
             right: true,
+            omit: hideFiveColumns,
         },
         {
             name: "Volume (24Hr)",
@@ -119,6 +127,7 @@ export default function ExchangeMarketList(props) {
             sortable: true,
             sortFunction: volumeSort,
             maxWidth: "180px",
+            minWidth: "110px",
             right: true,
         },
         {
@@ -127,30 +136,39 @@ export default function ExchangeMarketList(props) {
             format: row => decimal(row.percentExchangeVolume) + "%",
             sortable: true,
             sortFunction: volumePercentSort,
-            maxWidth: "130px",
+            maxWidth: 950 < windowWidth <= 1100 ? "105px" : "120px",
+            maxWidth: windowWidth <= 950 ? "90px" : "120px",
+            minWidth: "80px",
             right: true,
+            omit: hideFiveColumns,
         },
         {
             name: "Trades (24Hr)",
             selector: row => row.tradesCount24Hr,
-            format: row => numberFormat(row.tradesCount24Hr),
+            format: row => numberFormatNoDecimal(row.tradesCount24Hr),
             sortable: true,
             sortFunction: tradesSort,
-            maxWidth: "140px",
+            maxWidth: "135px",
+            minWidth: "101px",
             right: true,
+            omit: hideFiveColumns,
         },
         {
             name: "Charts",
             selector: row => row.chart,
-            maxWidth: "90px",
+            maxWidth: windowWidth <= 1100 ? "70px" : "90px",
+            minWidth: "70px",
             center: true,
+            omit: hideFiveColumns,
         },
         {
             name: "Status",
             selector: row => row.socket,
             sortable: true,
-            maxWidth: "90px",
+            maxWidth: windowWidth <= 1100 ? "75px" : "90px",
+            minWidth: "70px",
             center: true,
+            omit: hideFiveColumns,
             cell: row => (
                 <div className="status-availability">{circle}</div>
             ),
@@ -168,6 +186,9 @@ export default function ExchangeMarketList(props) {
         },
         headCells: {
             style: {
+                fontSize: windowWidth <= 950 ? "11.5px" : "14px",
+                paddingLeft: windowWidth <= 1100 ? "8px" : "16px",
+                paddingRight: windowWidth <= 1100 ? "8px" : "16px",
                 '&:hover': {
                     color: theme === "dark" ? "#fff" : "#000",
                 },
@@ -196,6 +217,13 @@ export default function ExchangeMarketList(props) {
                 backgroundColor: theme === "dark" ? "rgb(54, 54, 54)" : "#fff",
             },
         },
+        cells: {
+            style: {
+                fontSize: windowWidth <= 430 ? "12px" : "14px",
+                paddingLeft: windowWidth <= 1100 ? "8px" : "16px",
+                paddingRight: windowWidth <= 1100 ? "8px" : "16px",
+            }
+        }
     };
     function decimal(x) {
         return parseFloat(x).toFixed(2);
@@ -206,10 +234,21 @@ export default function ExchangeMarketList(props) {
 	function numberFormat(x) {
 		return Intl.NumberFormat(undefined, {minimumFractionDigits: 2}).format(x);
 	};
-    
+    function numberFormatNoDecimal(x) {
+		return Intl.NumberFormat(undefined, {minimumFractionDigits: 0}).format(x);
+	};
+    useEffect(() => {
+        if (windowWidth <= 770) {
+            setHideFiveColumns(true);
+        }
+        else {
+            setHideFiveColumns(false);
+        }
+    }, [windowWidth]);
+
     return (
         <div className={`exchange-market-list ${theme}`}>
-            <div className="container">
+            <div className="container-orig">
                 <div className="box">
                     <DataTable
                         columns={columns} data={exchangeMarketData}

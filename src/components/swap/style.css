@@ -132,7 +132,7 @@
 .swap .swap-box .shuffle-icon:hover {
     cursor: pointer;
 }
-.swap .swap-box button.green-wallet {
+button.green-wallet {
     width: 100%;
     padding: 18px 0px;
     margin-top: 7px;

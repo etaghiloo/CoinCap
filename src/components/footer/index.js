@@ -10,7 +10,7 @@ export default function Footer(props) {
     
     return (
         <div className={`footer ${theme}`}>
-            <div className="container">
+            <div className="container-orig">
                 <div className="footer-wrapper">
                     <div className="column one">
                         <h4>COINCAP.IO</h4>

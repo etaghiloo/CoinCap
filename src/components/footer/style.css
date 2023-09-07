@@ -8,10 +8,11 @@
 }
 .footer .footer-wrapper {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 .footer .column {
     width: 25%;
-    padding: 0 10px;
 }
 .footer .column.one {
     padding-left: 0;

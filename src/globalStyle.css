@@ -19,8 +19,8 @@ body {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
 }
-.container {
-    max-width: 1150px;
+.container-orig {
+    width: 1150px;
     margin: 0 auto;
 }
 ul,
@@ -97,4 +97,293 @@ button.green {
 }
 button.green:hover {
     transform: translateY(-2px);
+}
+
+@media only screen and (max-width: 1200px) {
+    .container-orig {
+        width: 1050px;
+    }
+    .coin-chart .coin-chart-wrapper {
+        width: 680px;
+    }
+    .coin-chart #chartdiv {
+        width: 680px;
+    }
+    .coin-chart .basic-info {
+        display: block;
+    }
+    .coin-chart .basic-info .statistics {
+        margin: 20px 0 0 90px;
+    }
+    .swap .swap-box {
+        margin-top: 170px;
+    }
+}
+@media only screen and (max-width: 1100px) {
+    .container-orig {
+        width: 900px;
+    }
+    .coin-chart-expand .coin-chart-wrapper {
+        width: 900px;
+    }
+    .coin-chart-expand .basic-info .statistics {
+        gap: 30px;
+    }
+    .coin-page .chart-swap .chart-swap-wrapper {
+        display: block;
+    }
+    .coin-chart .coin-chart-wrapper,
+    .coin-chart #chartdiv {
+        width: 100%;
+    }
+    .coin-chart .basic-info {
+        display: flex;
+    }
+    .coin-chart .basic-info .statistics {
+        margin: 0;
+    }
+    .swap {
+        padding: 0 10px;
+        margin-top: 35px;
+    }
+    .swap .swap-box {
+        margin: 0 auto;
+    }
+}
+@media only screen and (max-width: 950px) {
+    .container-orig {
+        width: 720px;
+    }
+    .header.mobile-view {
+        padding: 9.5px 0;
+    }
+    .header.mobile-view .header-wrapper {
+        flex-direction: row-reverse;
+    }
+    .header.mobile-view ul.menu-left,
+    .header.mobile-view ul.menu-right li:nth-child(-n+2),
+    .header.mobile-view ul.menu-right li:nth-child(4) {
+        display: none;
+    }
+    .header.mobile-view .bar-menu i.active {
+        display: block;
+        font-size: 1.2rem;
+        color: #000;
+    }
+    .header.mobile-view.dark .bar-menu i.active {
+        color: #fff;
+    }
+    .header.mobile-view .bar-menu:hover {
+        cursor: pointer;
+    }
+    .home-banner {
+        height: 280px;
+        padding: 25px 0;
+    }
+    .home-banner .home-banner-wrapper {
+        width: 430px;
+        gap: 40px;
+        margin: 0 auto;
+    }
+    .coin-chart-expand .basic-info .description {
+        gap: 10px;
+    }
+    .coin-chart-expand .coin-chart-wrapper {
+        width: 100%;
+    }
+    .coin-banner .coin-banner-wrapper {
+        padding: 0 20px;
+        display: block;
+    }
+    .coin-banner .info-left {
+        padding-bottom: 35px;
+    }
+    .coin-banner button.green {
+        margin-top: 15px;
+    }
+    .coin-chart .basic-info .statistics {
+        gap: 25px;
+    }
+    .coin-banner .info-right {
+        justify-content: space-between;
+    }
+    .exchange-banner .info-left {
+        gap: 50px;
+    }
+}
+@media only screen and (max-width: 770px) {
+    .container-orig {
+        width: 100%;
+        padding: 0 10px;
+    }
+    .home-banner.mobile-view {
+        height: auto;
+        padding: 25px 20px;
+    }
+    .home-banner.mobile-view .market-snapshot {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        opacity: 1;
+        visibility: visible;
+    }
+    .home-banner.mobile-view .market-snapshot:hover {
+        cursor: pointer;
+    }
+    .home-banner.mobile-view .market-snapshot i {
+        font-size: 0.7rem;
+    }
+    .home-banner.mobile-view .market-snapshot i.rotated {
+        transform: rotate(90deg);
+    }
+    .home-banner.mobile-view .home-banner-wrapper {
+        display: none;
+        visibility: hidden;
+        opacity: 0;
+    }
+    .home-banner.mobile-view .home-banner-wrapper.active {
+        display: block;
+        visibility: visible;
+        opacity: 1;
+        width: 100%;
+        padding-top: 15px;
+    }
+    .home-banner.mobile-view .market-cap,
+    .home-banner.mobile-view .exchange-vol,
+    .home-banner.mobile-view .assets,
+    .home-banner.mobile-view .exchange,
+    .home-banner.mobile-view .markets,
+    .home-banner.mobile-view .btc-dom-index {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 7px 14px;
+    }
+    .home-banner.mobile-view .market-cap,
+    .home-banner.mobile-view .exchange-vol,
+    .home-banner.mobile-view .assets,
+    .home-banner.mobile-view .exchange,
+    .home-banner.mobile-view .markets {
+        border-bottom: 1px solid #ffffff2c;
+    }
+    .home-banner.mobile-view h2 {
+        font-size: 0.9rem;
+    }
+    .home-banner.mobile-view h4 {
+        font-weight: lighter;
+    }
+    .coin-chart-expand .basic-info {
+        display: block;
+    }
+    .coin-chart-expand .basic-info .statistics {
+        margin: 20px 0 0 90px;
+        gap: 50px;
+    }
+    .coin-chart-expand a button.green.details {
+        margin: 10px 0 25px 0;
+    }
+    .home-page .coins-footer-wrapper,
+    .exchanges-page .exchanges-footer-wrapper,
+    .exchange-page .exchange-market-footer-wrapper {
+        margin-top: 10px;
+    }
+    .coin-chart .basic-info {
+        display: block;
+    }
+    .coin-chart .basic-info .statistics {
+        margin: 20px 0 0 90px;
+    }
+    .exchange-banner {
+        padding: 40px 20px;
+    }
+    .exchange-banner .exchange-banner-wrapper {
+        display: block;
+    }
+    .exchange-banner .info-left {
+        padding-bottom: 35px;
+    }
+    .footer .column {
+        width: 50%;
+    }
+    .footer .column.one,
+    .footer .column.two {
+        padding-bottom: 30px;
+    }
+}
+@media only screen and (max-width: 630px) {
+    .coin-chart-expand .basic-info {
+        margin-bottom: 30px;
+    }
+    .coin-chart-expand .basic-info .statistics {
+        display: block;
+    }
+    .coin-chart-expand .basic-info .statistics .high-low,
+    .coin-chart-expand .basic-info .statistics .high-low .high,
+    .coin-chart-expand .basic-info .statistics .average-change .average {
+        margin-bottom: 10px;
+    }
+    .coin-chart-expand .basic-info .statistics .high-low .high,
+    .coin-chart-expand .basic-info .statistics .high-low .low,
+    .coin-chart-expand .basic-info .statistics .average-change .average,
+    .coin-chart-expand .basic-info .statistics .average-change .change {
+        justify-content: space-between;
+    }
+    .coin-banner .info-left {
+        gap: 20px;
+    }
+    .coin-banner .info-left .nspc .name-symbol {
+        display: block;
+    }
+    .coin-banner .info-left .nspc .price-change h2 {
+        font-size: 1.2rem;
+    }
+    .coin-chart .basic-info .statistics {
+        display: block;
+    }
+    .coin-chart .basic-info .statistics .high-low {
+        margin-bottom: 11px;
+    }
+    .coin-chart .basic-info .statistics .high-low .high,
+    .coin-chart .basic-info .statistics .average-change .average {
+        margin-bottom: 8px;
+    }
+    .coin-chart .basic-info .statistics .high-low .high,
+    .coin-chart .basic-info .statistics .high-low .low,
+    .coin-chart .basic-info .statistics .average-change .average,
+    .coin-chart .basic-info .statistics .average-change .change {
+        justify-content: space-between;
+    }
+    .header.mobile-view ul.side-menu.active {
+        width: 200px;
+    }
+    .header.mobile-view ul.side-menu.active li h3 {
+        font-size: 0.9rem;
+    }
+    .settings-popup.active .settings-box {
+        width: 240px;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .coin-chart-expand .basic-info .statistics {
+        margin-left: 0;
+    }
+    .coin-banner .info-left .nspc .price-change {
+        display: block;
+    }
+    .swap {
+        padding: 0;
+    }
+    .swap .swap-box,
+    .swap .swap-sell-tokens-list.active,
+    .swap .swap-get-tokens-list.active,
+    .swap .swap-sell-tokens-list.active,
+    .swap .swap-get-tokens-list.active {
+        width: 340px;
+    }
+    .swap .swap-box .sell-box .select-drop-down h3,
+    .swap .swap-box .get-box .token-drop-down h3,
+    .swap .swap-box .sell-box .token-drop-down h3,
+    .swap .swap-box .get-box .select-drop-down h3 {
+        font-size: 1rem;
+    }
 }

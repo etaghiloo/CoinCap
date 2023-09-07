@@ -12,13 +12,17 @@
 .exchange-banner .exchange-banner-wrapper {
     display: flex;
     flex-wrap: wrap;
-    gap: 90px;
+    justify-content: space-around;
     align-items: flex-start;
 }
 .exchange-banner .info-left {
     display: flex;
     gap: 100px;
-    margin: 0 160px 0 75px;
+}
+.exchange-banner .info-right {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
 }
 .exchange-banner .info-left .rank {
     position: relative;

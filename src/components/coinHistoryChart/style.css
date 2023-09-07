@@ -1,13 +1,12 @@
 .coin-chart #chartdiv {
-    padding: 0;
     width: 750px;
     height: 400px;
 }
 .coin-chart .coin-chart-wrapper {
-    max-width: 740px;
+    width: 750px;
 }
 .coin-chart .basic-info {
-    width: 740px;
+    /* width: 740px; */
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;

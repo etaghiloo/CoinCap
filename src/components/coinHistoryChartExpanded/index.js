@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import * as am5 from "@amcharts/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
+import useWindowSize from "../../customHooks/useWindowSize";
 import './style.css';
 
 export default function CoinHistoryChartExpanded(props) {
@@ -21,6 +22,7 @@ export default function CoinHistoryChartExpanded(props) {
 	const firstData = slicedData[0];
 	const lastData = slicedData[slicedData.length - 1];
 	const intervalCount = interval.match(/\d+/g);
+    const windowWidth = useWindowSize();
 	async function getApiHistory() {
 		try {
             setLoading(true);
@@ -107,9 +109,11 @@ export default function CoinHistoryChartExpanded(props) {
 		xAxis.get("dateFormats")["day"] = "MMM dd";
 		xAxis.get("dateFormats")["month"] = "MMM YYYY";
 		xAxis.get("renderer").labels.template.setAll({
+			rotation: windowWidth <= 950 ? -60 : 0,
 			fontSize: 12,
 			fontWeight: 400,
 			fill: am5.color(0x666666),
+			centerX: windowWidth <= 950 ? am5.percent(100) : am5.percent(50),
 			location: 0,
 			centerY: -6,
 		});
@@ -130,7 +134,7 @@ export default function CoinHistoryChartExpanded(props) {
 			fill: am5.color(0x666666),
 			inside: true,
 			dy: -10,
-			centerX: -1000,
+			centerX: windowWidth,
 		});
 		yAxis.get("renderer").grid.template.setAll({
 			opacity: 0.7,
